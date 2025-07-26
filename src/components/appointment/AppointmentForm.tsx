@@ -13,7 +13,6 @@ import { Button } from "@/components/ui/button";
 import { Loader2, CheckCircle, XCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-import type { DetailedTimeSlot } from "@/lib/api-requests";
 import type { Service } from "@/services/serviceApi";
 import { UseFormReturn } from "react-hook-form"; // UseFormReturn'ı import edin
 
@@ -23,6 +22,7 @@ import { UseFormReturn } from "react-hook-form"; // UseFormReturn'ı import edin
 import { z } from "zod";
 import TimeSlotSelector from "./TimeSlotSelector";
 import ServiceSelector from "./ServiceSelector";
+import { DetailedTimeSlot } from "@/models/customer.model";
 
 const appointmentFormSchema = z.object({
   customerName: z

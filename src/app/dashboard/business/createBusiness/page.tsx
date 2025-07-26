@@ -6,7 +6,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import {
   useCreateBusinessMutation,
-  useGetUserPackageQuery,
   useCheckBusinessAddPermissionQuery, // 👈 Yeni eklenen hook
 } from "@/services/businessApi";
 import { BusinessTypes } from "@/models/business.model"; // Assuming this is defined correctly
@@ -15,7 +14,6 @@ import MapSelector from "@/components/MapSelector";
 // Import Shadcn/ui components for better styling
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
 import {
   Select,
   SelectContent,
@@ -70,10 +68,8 @@ const CreateBusinessPage = () => {
     data: permissionData,
     isLoading: isLoadingPermission,
     isError: isPermissionError,
-    error: permissionError,
   } = useCheckBusinessAddPermissionQuery();
 
-  const { data: packageData } = useGetUserPackageQuery();
   const [createBusiness, { isLoading, isSuccess, isError, error }] =
     useCreateBusinessMutation();
 

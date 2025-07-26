@@ -4,7 +4,6 @@ import React, { useEffect, useState, useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { format, isBefore } from "date-fns";
-import { Loader2 } from "lucide-react";
 import * as z from "zod"; // Zod şemaları için import
 
 import { BusinessInfoCard, AppointmentForm } from "@/components/appointment"; // Kendi kardeş bileşenlerini import et
@@ -17,7 +16,6 @@ import {
 
 // useGetServicesByBusinessIdQuery'yi buraya geri taşıyoruz!
 import { useGetServicesByBusinessIdQuery } from "@/services/serviceApi";
-import type { Service } from "@/services/serviceApi"; // Service tipini import et
 import { AppointmentFormValues } from "./AppointmentForm";
 import VerificationDialog, {
   VerificationFormValues,
@@ -62,8 +60,6 @@ const verificationSchema = z.object({
     .max(6, "Kod 6 haneli olmalıdır.")
     .regex(/^\d+$/, "Kod sadece rakamlardan oluşmalıdır."),
 });
-
-const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 interface ClientAppointmentManagerProps {
   initialBusiness: BusinessDetails; // Sunucudan gelen işletme bilgisi
@@ -146,10 +142,8 @@ export function ClientAppointmentManager({
 
   const [initiateBooking, { isLoading: isInitiatingBooking }] =
     useInitiateAppointmentBookingMutation();
-  const [verifyPhone, { isLoading: isVerifyingPhone }] =
-    useVerifyPhoneNumberMutation(); // Yeni!
-  const [finalizeAppointmentBooking, { isLoading: isFinalizingBooking }] =
-    useFinalizeAppointmentMutation(); // Yeni!
+  const [verifyPhone] = useVerifyPhoneNumberMutation(); // Yeni!
+  const [finalizeAppointmentBooking] = useFinalizeAppointmentMutation(); // Yeni!
 
   const onAppointmentSubmit = useCallback(
     async (values: AppointmentFormValues) => {

@@ -42,7 +42,7 @@ const api = {
     }
     return response.json();
   },
-  post: async (url: string, data: any, token: string) => {
+  post: async (url: string, data: unknown, token: string) => {
     const response = await fetch(`${API_BASE_URL}${url}`, {
       method: "POST",
       headers: {

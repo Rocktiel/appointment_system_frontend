@@ -17,8 +17,9 @@ import { CalendarDays, Clock, Loader2 } from "lucide-react";
 import { format, isBefore } from "date-fns";
 import { tr } from "date-fns/locale";
 import { cn } from "@/lib/utils";
-import type { DetailedTimeSlot } from "@/lib/api-requests";
+
 import { UseFormReturn } from "react-hook-form"; // UseFormReturn'ı import edin
+import { DetailedTimeSlot } from "@/models/customer.model";
 
 interface TimeSlotSelectorProps {
   form: UseFormReturn<any>; // Dinamik form tipi için any kullanılabilir veya özel tip oluşturulabilir
@@ -30,7 +31,6 @@ interface TimeSlotSelectorProps {
 
 export default function TimeSlotSelector({
   form,
-  selectedDate,
   setSelectedDate,
   detailedTimeSlots,
   loadingSlots,

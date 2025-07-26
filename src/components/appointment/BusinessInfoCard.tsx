@@ -1,6 +1,5 @@
 "use client";
 
-import type { BusinessDetails } from "@/lib/api-requests";
 import React from "react";
 import { MapPin, Info, Mail, Phone, Globe } from "lucide-react";
 import {
@@ -10,6 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { BusinessDetails } from "@/models/customer.model";
 
 interface BusinessInfoCardProps {
   business: BusinessDetails;

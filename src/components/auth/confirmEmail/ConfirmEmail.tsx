@@ -11,8 +11,7 @@ export default function ConfirmEmail() {
   const [message, setMessage] = useState<string | null>(null);
   const [userEmail, setUserEmail] = useState<string | null>(null);
 
-  const [confirmEmail, { isLoading, isSuccess, error }] =
-    useConfirmEmailMutation();
+  const [confirmEmail, { isLoading }] = useConfirmEmailMutation();
 
   const searchParams = useSearchParams();
   const router = useRouter();

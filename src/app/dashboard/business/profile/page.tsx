@@ -50,18 +50,13 @@ const updateSchema = z.object({
 type UpdateFormData = z.infer<typeof updateSchema>;
 
 const ManageBusinessesPage = () => {
-  const {
-    data: businesses,
-    isLoading: isLoadingBusinesses,
-    error: businessesError,
-  } = useGetUserBusinessesQuery();
+  const { data: businesses } = useGetUserBusinessesQuery();
   const [
     updateBusiness,
     {
       isLoading: isUpdating,
       isSuccess: isUpdateSuccess,
       isError: isUpdateError,
-      error: updateError,
     },
   ] = useUpdateBusinessMutation();
 
@@ -80,11 +75,10 @@ const ManageBusinessesPage = () => {
   });
 
   const {
-    register,
     handleSubmit,
     setValue,
     reset,
-    formState: { errors, isDirty },
+    formState: { errors },
     watch,
     trigger,
   } = form; // Add watch and trigger
@@ -117,12 +111,6 @@ const ManageBusinessesPage = () => {
     }
   }, [watch("businessId"), businesses, reset, trigger]); // Dependency on businessId, businesses, reset, and trigger
 
-  const handleSelect = (id: string) => {
-    // Convert id to number for comparison
-    const selectedId = Number(id);
-    // Directly update businessId in the form state
-    setValue("businessId", selectedId, { shouldValidate: true });
-  };
   const handleBusinessSelect = (id: number | undefined) => {
     setValue("businessId", id, { shouldValidate: true });
   };
