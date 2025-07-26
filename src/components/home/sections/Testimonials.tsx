@@ -9,9 +9,9 @@ export default function Testimonials() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="bg-gray-700 p-6 rounded-lg shadow-lg text-left">
           <p className="italic mb-4 text-gray-200">
-            "Bu sistem işletmemizin randevu süreçlerini tamamen değiştirdi.
+            `Bu sistem işletmemizin randevu süreçlerini tamamen değiştirdi.
             Artık daha az telefonla uğraşıyor, daha çok müşteriye hizmet
-            veriyoruz!"
+            veriyoruz!`
           </p>
           <p className="font-semibold text-amber-300">
             - Ayşe Yılmaz, Şık Kuaför Salonu Sahibi
@@ -19,9 +19,9 @@ export default function Testimonials() {
         </div>
         <div className="bg-gray-700 p-6 rounded-lg shadow-lg text-left">
           <p className="italic mb-4 text-gray-200">
-            "Müşterilerimin online randevu alabilmesi, hem benim hem de onların
+            `Müşterilerimin online randevu alabilmesi, hem benim hem de onların
             hayatını kolaylaştırdı. Otomatik hatırlatmalar sayesinde randevu
-            kaçırma oranımız sıfırlandı."
+            kaçırma oranımız sıfırlandı.`
           </p>
           <p className="font-semibold text-amber-300">
             - Can Demir, Modern Berber Stüdyosu

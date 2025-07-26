@@ -16,20 +16,10 @@ import {
   CardTitle,
   CardDescription,
   CardContent,
-  CardFooter,
 } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-} from "@/components/ui/dialog";
-import { CheckCircleIcon, XCircleIcon } from "lucide-react";
+import { XCircleIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import PackageDialog from "@/components/dashboard/business/PackageDialog";
-import Sidebar from "@/components/dashboard/business/Sidebar";
 
 // Varsayımsal API istemcisi (öncekiyle aynı, baseURL eklenebilir)
 // Backend adresiniz

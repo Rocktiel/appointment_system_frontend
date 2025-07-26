@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/form";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { LogIn, Mail, Lock, Loader2 } from "lucide-react";
+import { Mail, Lock, Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 import { loginSchema } from "@/lib/zodSchemas";
@@ -92,8 +92,8 @@ export default function LoginForm() {
       }
 
       form.reset();
-    } catch (error: any) {
-      setErrorMsg(error.message || "Bir hata oluştu. Lütfen tekrar deneyin.");
+    } catch (error: unknown) {
+      setErrorMsg(error instanceof Error ? error.message || "Bir hata oluştu. Lütfen tekrar deneyin.");
     } finally {
       setLoading(false);
     }

@@ -1,10 +1,6 @@
 // features/auth/authSlice.ts (Güncellenmiş)
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import {
-  initialAuthState,
-  type AuthState,
-  type User,
-} from "@/models/auth.model";
+import { initialAuthState, type User } from "@/models/auth.model";
 import { authApi } from "@/services/authApi";
 
 const authSlice = createSlice({

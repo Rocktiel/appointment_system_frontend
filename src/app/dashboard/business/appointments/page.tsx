@@ -3,7 +3,7 @@ import AppointmentDetails from "@/components/dashboard/business/AppointmentDetai
 import BusinessSelector2 from "@/components/dashboard/business/BusinessSelector2";
 import DateSelector from "@/components/dashboard/business/DateSelection";
 import TimeSlots from "@/components/dashboard/business/TimeSlots"; // Güncellenmiş TimeSlots bileşeni
-import { useState, useEffect } from "react";
+import { useState } from "react";
 // DetailedTimeSlot tipi için, models/customer.model'dan değil,
 // artık API tanımlarınızla uyumlu olan lib/api-requests.ts veya services/customerApi.ts'den import etmek daha doğru olacaktır.
 // veya services/customerApi.ts'den
@@ -22,7 +22,8 @@ const BusinessAppointmentsPage = () => {
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
   const [selectedDayId, setSelectedDayId] = useState<number | null>(null); // Bu şu an kullanılmıyor gibi görünüyor, silinebilir
   const [formattedDate, setFormattedDate] = useState<string | null>(null); // Bu da kullanılmıyor gibi görünüyor, silinebilir
-
+  console.log(selectedDayId);
+  console.log(formattedDate);
   const [selectedSlot, setSelectedSlot] = useState<DetailedTimeSlot | null>(
     null
   ); // Tipi DetailedTimeSlot olarak güncelledik

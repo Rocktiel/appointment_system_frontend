@@ -5,9 +5,7 @@ import {
   SelectContent,
   SelectItem,
   SelectValue,
-  SelectLabel,
 } from "@/components/ui/select";
-import { toast } from "sonner";
 import { Label } from "@/components/ui/label";
 import { DAYS } from "@/app/dashboard/business/time-slots/Days";
 

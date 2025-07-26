@@ -1,27 +1,18 @@
 "use client";
 
 import React, { useEffect } from "react";
-import { useForm, useWatch } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import {
   useGetUserBusinessesQuery,
   useUpdateBusinessMutation,
 } from "@/services/businessApi";
-import { BusinessTypes } from "@/models/business.model"; // Assuming this is defined correctly
 import MapSelector from "@/components/MapSelector";
 
 // Import Shadcn/ui components
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
   Card,
@@ -33,7 +24,6 @@ import {
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,

@@ -19,11 +19,7 @@ const BusinessSelector2 = ({
   selectedBusinessId,
   onSelectBusiness,
 }: BusinessSelectorProps) => {
-  const {
-    data: businesses,
-    isLoading: isLoadingBusinesses,
-    error: businessesError,
-  } = useGetUserBusinessesQuery();
+  const { data: businesses } = useGetUserBusinessesQuery();
 
   return (
     <div>

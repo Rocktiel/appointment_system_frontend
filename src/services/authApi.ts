@@ -13,7 +13,7 @@ export const authApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: `${API_URL}/auth`,
     credentials: "include", // Çerezler için gerekli
-    prepareHeaders: (headers, { getState }) => {
+    prepareHeaders: (headers, {}) => {
       // 1. LocalStorage'dan almayı dene (login sonrası ilk yükleme veya sayfa yenileme durumunda)
       const accessToken = localStorage.getItem("accessToken");
 

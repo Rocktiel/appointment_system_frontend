@@ -1,13 +1,13 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   useGetUserBusinessesQuery,
   useGetTimeIntervalsQuery,
   useCreateTimeIntervalMutation,
   useDeleteTimeIntervalMutation,
 } from "@/services/businessApi";
-import { Business, TimeInterval } from "@/models/business.model";
+import { Business } from "@/models/business.model";
 import { Button } from "@/components/ui/button";
 import { DateTimePickerV2 } from "@/components/dashboard/business/date-time-picker-v2";
 import {
@@ -16,7 +16,6 @@ import {
   SelectContent,
   SelectItem,
   SelectValue,
-  SelectLabel,
 } from "@/components/ui/select";
 import { toast } from "sonner";
 import { Label } from "@/components/ui/label";

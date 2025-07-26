@@ -57,7 +57,7 @@ export default function BusinessPage() {
               Başarılı Ortaklarımızdan Bazıları
             </h2>
             <div className="flex flex-wrap justify-center items-center gap-8">
-              <img
+              {/* <img
                 src=""
                 alt="Partner 1"
                 className="h-16 opacity-75 hover:opacity-100 transition-opacity"
@@ -71,7 +71,7 @@ export default function BusinessPage() {
                 src=""
                 alt="Partner 3"
                 className="h-16 opacity-75 hover:opacity-100 transition-opacity"
-              />
+              /> */}
               {/* TODO: İŞBİRLİKLERİ VERİTABANINDAN GELECEK */}
             </div>
             <p className="text-gray-400 mt-8 text-lg">

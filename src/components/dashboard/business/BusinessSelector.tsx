@@ -15,7 +15,6 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { useGetUserBusinessesQuery } from "@/services/businessApi"; // İşletmeleri çekmek için RTK Query hook'u
-import { Business } from "@/models/business.model"; // Business modelini import ettiğinizden emin olun
 
 interface BusinessSelectorProps {
   // Seçilen işletmenin ID'sini number olarak geri döndürecek callback

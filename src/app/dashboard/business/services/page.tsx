@@ -32,7 +32,7 @@ import { Business } from "@/models/business.model";
 import { useGetUserBusinessesQuery } from "@/services/businessApi";
 
 export default function ServicesPage() {
-  const { businessId } = useParams();
+  useParams();
 
   const [selectedBusinessId, setSelectedBusinessId] = useState<string | null>(
     null

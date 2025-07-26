@@ -5,13 +5,3 @@ export { default as HowItWorks } from "./HowItWorks";
 export { default as Pricing } from "./Pricing";
 export { default as Testimonials } from "./Testimonials";
 export { default as CallToAction } from "./CallToAction";
-
-import {
-  Hero,
-  Features,
-  Benefits,
-  HowItWorks,
-  Pricing,
-  Testimonials,
-  CallToAction,
-} from "@/components/home/sections";
