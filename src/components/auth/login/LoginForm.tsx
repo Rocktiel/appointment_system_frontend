@@ -93,7 +93,7 @@ export default function LoginForm() {
 
       form.reset();
     } catch (error: unknown) {
-      setErrorMsg(error instanceof Error ? error.message || "Bir hata oluştu. Lütfen tekrar deneyin.");
+      setErrorMsg(error instanceof Error ? error.message : "Bir hata oluştu.");
     } finally {
       setLoading(false);
     }
