@@ -1,4 +1,4 @@
-// "use client";
+"use client";
 import AppointmentDetails from "@/components/dashboard/business/AppointmentDetails";
 import BusinessSelector2 from "@/components/dashboard/business/BusinessSelector2";
 import DateSelector from "@/components/dashboard/business/DateSelection";
