@@ -107,44 +107,57 @@ src/
 
 ## 🖼️ Ekran Görüntüleri
 
-### Ana Sayfa Ekranı
+## Ana Sayfa Ekranı
 
 ![Ana Sayfa](./public/project_images/home_page.png)
 
-### Paketler Ekranı
+## Paketler Ekranı
 
 ![Paketler](./public/project_images/packages_page.png)
 
-### Kayıt Ekranı
+## Kayıt Ekranı
 
 ![Kayıt](./public/project_images/register_page.png)
 
-### Giriş Ekranı
+## Giriş Ekranı
 
 Kullanıcı e-mail ve şifresi ile giriş yapabilir.
 
 ![Giriş](./public/project_images/login_page.png)
 
-### E-mail Doğrulama
+## E-mail Doğrulama
 
 ![E-mail Doğrulama](./public/project_images/confirm_email.png)
+![E-mail Doğrulama Maili](./public/project_images/mail_code.png)
 
-### Ana Sayfa Ekranı
+## İşletme Paket Seçme Ekranı
 
-![Ana Sayfa](./public/project_images/home_page.png)
+![İşletme Paket Seçme](./public/project_images/business_select_page.png)
 
-### Ana Sayfa Ekranı
+## İşletme Ekleme Ekranı
 
-![Ana Sayfa](./public/project_images/home_page.png)
+![İşletme Ekleme](./public/project_images/business_create_page.png)
 
-### Ana Sayfa Ekranı
+## İşletme Detay Ekranı
 
-![Ana Sayfa](./public/project_images/home_page.png)
+![İşletme Detay](./public/project_images/business_detail_page.png)
 
-### Ana Sayfa Ekranı
+## İşletme Hizmet Yönetimi Ekranı
 
-![Ana Sayfa](./public/project_images/home_page.png)
+![İşletme Hizmet Yönetimi](./public/project_images/add_services_page.png)
 
-### Ana Sayfa Ekranı
+## İşletme Zaman Aralıkları Yönetimi Ekranı
 
-![Ana Sayfa](./public/project_images/home_page.png)
+![İşletme Zaman Aralıkları Yönetimi](./public/project_images/add_timeslots_page.png)
+
+## İşletme Randevu Yönetimi Ekranı
+
+![İşletme Randevu Yönetimi](./public/project_images/appointment_management.png)
+
+## İşletme Takvim Ekranı
+
+![İşletme Takvim](./public/project_images/business_calendar.png)
+
+## Müşteri Randevu Ekranı
+
+![Müşteri Randevu](./public/project_images/appointment_page.png)
