@@ -33,42 +33,48 @@ Bu proje, Next.js App Router'ın modern dosya tabanlı yönlendirme ve düzenlem
 
 ```bash
 src/
-├── app/                        # Ana uygulama dizini (App Router)
-│   ├── page.tsx                # Ana sayfa
-│   ├── layout.tsx              # Genel uygulama düzeni (Root Layout)
-│   ├── globals.css             # Genel CSS stilleri
+├── app/                          # Ana uygulama dizini (App Router)
+│   ├── page.tsx                    # Ana sayfa
+│   ├── layout.tsx                  # Genel uygulama düzeni (Root Layout)
+│   ├── globals.css                 # Genel CSS stilleri
 │   │
-│   ├── (auth)/                 # Kimlik doğrulama ile ilgili rotalar grubu
-│   │   ├── login/page.tsx      # Giriş sayfası
-│   │   ├── register/page.tsx   # Kayıt sayfası
-│   │   ├── confirmEmail/page.tsx # E-posta doğrulama sayfası
+│   ├── (auth)/                     # Kimlik doğrulama ile ilgili rotalar grubu
+│   │   ├── login/page.tsx          # Giriş sayfası
+│   │   ├── register/page.tsx       # Kayıt sayfası
+│   │   ├── confirmEmail/page.tsx   # E-posta doğrulama sayfası
 │   │   ├── forgotPassword/page.tsx # Şifre sıfırlama sayfası
-│   │   └── layout.tsx          # Kimlik doğrulama rotalarına özel düzen
+│   │   └── layout.tsx              # Kimlik doğrulama rotalarına özel düzen
 │   │
-│   ├── (routes)/               # Genel, herkese açık rotalar grubu
-│   │   ├── about/page.tsx      # Hakkımızda sayfası
-│   │   ├── business/page.tsx   # İşletme listeleme sayfası (veya genel işletme bilgileri)
-│   │   ├── contact/page.tsx    # İletişim sayfası
-│   │   ├── packages/page.tsx   # Abonelik paketleri sayfası
-│   │   └── layout.tsx          # Genel rotalara özel düzen
+│   ├── (routes)/                   # Genel, herkese açık rotalar grubu
+│   │   ├── about/page.tsx          # Hakkımızda sayfası
+│   │   ├── business/page.tsx       # İşletme listeleme sayfası
+│   │   ├── contact/page.tsx        # İletişim sayfası
+│   │   ├── packages/page.tsx       # Abonelik paketleri sayfası
+│   │   └── layout.tsx              # Genel rotalara özel düzen
 │   │
-│   ├── [slug]/                 # Dinamik işletme randevu sayfası (örn: /bir-isletme-adi)
-│   │   └── page.tsx            # İşletmeye özel randevu alma sayfası
+│   ├── [slug]/                     # Dinamik işletme randevu sayfası (örn: /bir-isletme-adi)
+│   │   └── page.tsx                # İşletmeye özel randevu alma sayfası
 │   │
-│   └── dashboard/              # Kimlik doğrulaması gerektiren paneller
-│       ├── layout.tsx          # Dashboard genel düzeni
+│   └── dashboard/                  # Kimlik doğrulaması gerektiren paneller
+│       ├── layout.tsx              # Dashboard genel düzeni
 │       │
-│       ├── admin/              # Yönetici (Admin) paneli rotaları
-│       │   ├── page.tsx        # Admin ana sayfası
-│       │   ├── business/page.tsx # Admin: İşletme yönetimi
-│       │   ├── packages/page.tsx # Admin: Paket yönetimi
-│       │   └── layout.tsx      # Admin paneline özel düzen
+│       ├── admin/                  # Yönetici (Admin) paneli rotaları
+│       │   ├── page.tsx            # Admin ana sayfası
+│       │   ├── business/page.tsx   # Admin: İşletme yönetimi
+│       │   ├── packages/page.tsx   # Admin: Paket yönetimi
+│       │   └── layout.tsx          # Admin paneline özel düzen
 │       │
-│       └── business/           # İşletme Sahibi paneli rotaları
-│           ├── page.tsx        # İşletme ana sayfası
-│           ├── appointments/page.tsx # İşletme: Randevu görüntüleme/yönetimi
-│           ├── calendar/page.tsx # İşletme: Takvim görünümü
-│           └── layout.tsx      # İşletme paneline özel düzen
+│       └── business/               # İşletme Sahibi paneli rotaları
+│           ├── page.tsx                # İşletme ana sayfası
+│           ├── appointments/page.tsx   # İşletme: Randevu görüntüleme/yönetimi
+│           ├── calendar/page.tsx       # İşletme: Haftalık takvimden randevu görüntüleme
+│           ├── createBusiness/page.tsx # İşletme: İşletme oluşturma
+│           ├── profile/page.tsx        # İşletme: İşletme bilgilerini görüntüleme/güncelleme
+│           ├── services/page.tsx       # İşletme: İşletmenin vereceği hizmetleri yönetme
+│           ├── settings/page.tsx       # İşletme: Ayarlar sayfası
+│           ├── statistics/page.tsx     # İşletme: İşletmenin istatistikleri
+│           ├── time-slots/page.tsx     # İşletme: İşletmenin zaman aralıklarını yönetme
+│           └── layout.tsx              # İşletme paneline özel düzen
 │
 ├── components/                 # Yeniden kullanılabilir UI bileşenleri
 │   ├── appointment/            # Randevu akışına özel bileşenler
@@ -76,7 +82,11 @@ src/
 │   ├── contact/                # İletişim formları/UI
 │   ├── dashboard/              # Dashboard genel bileşenleri
 │   │   └── business/           # İşletme dashboard'ına özel bileşenler
-│   └── home/sections/Pricing/PackageCard.tsx # Paket kartı bileşeni
+│   │   └── admin/              # Admin dashboard'ına özel bileşenler
+│   ├── footer/                 # Footer
+│   ├── header/                 # Mobil & desktop header
+│   ├── ui/                     # ShadCN UI bileşenleri
+│   └── home/                   # Landing page bileşenleri (Hero, Features, Pricing...)
 │
 ├── lib/                        # Yardımcı fonksiyonlar ve yapılandırmalar
 │   ├── slices/                 # Redux dilimleri (slices)
@@ -90,12 +100,13 @@ src/
 ├── models/                     # TypeScript arayüzleri ve veri modelleri
 ├── services/                   # Redux Toolkit Query API servisleri (RTK Query)
 ├── hooks/                      # Özel React hook'ları
-└── ...
 
+├── next.config.js              # Next.js yapılandırması
+├── middleware.ts               # Role-based yönlendirmeler için middleware
 ```
 
 ## 🖼️ Ekran Görüntüleri
 
 ### Ana Sayfa Ekranı
 
-![Ana Sayfa](./public/images/home_page.png)
+![Ana Sayfa](./public/project_images/home_page.png)
