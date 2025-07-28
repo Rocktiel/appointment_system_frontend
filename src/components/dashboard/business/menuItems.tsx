@@ -36,6 +36,11 @@ export const menuItems: MenuItem[] = [
     path: "appointments",
   },
   {
+    label: "Takvim",
+    icon: <CalendarCheck size={20} />,
+    path: "calendar",
+  },
+  {
     label: "Hizmetler",
     icon: <Scissors size={20} />,
     path: "services",

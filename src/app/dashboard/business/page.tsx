@@ -20,6 +20,7 @@ import {
 import { XCircleIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import PackageDialog from "@/components/dashboard/business/PackageDialog";
+import WeeklyCalendar from "@/components/WeeklyCalendar";
 
 // Varsayımsal API istemcisi (öncekiyle aynı, baseURL eklenebilir)
 // Backend adresiniz
@@ -218,6 +219,8 @@ const BusinessDashboard = () => {
               <p>Toplam aktif hizmetler: 12</p>
             </CardContent>
           </Card>
+
+          <WeeklyCalendar />
         </main>
       </div>
     );

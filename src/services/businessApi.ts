@@ -8,7 +8,12 @@ import type {
   Appointment,
   AppointmentRequest, // 👈 yeni model
 } from "@/models/business.model";
-
+interface TimeSlot {
+  id: number;
+  start_time: string;
+  end_time: string;
+  isAvailableForBooking: boolean;
+}
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export const businessApi = createApi({
@@ -110,6 +115,13 @@ export const businessApi = createApi({
       // Bu endpoint bir resource'u değiştirmediği için invalidatesTags'e gerek yok.
       // providesTags de eklemeye gerek yok, çünkü bu sadece bir kontrol, bir veri listesi değil.
     }),
+    getWeeklyDetailedSlots: builder.query<
+      Record<string, TimeSlot[]>, // Örn: { "2025-07-28": [TimeSlot, ...], ... }
+      { businessId: number; start: string; end: string }
+    >({
+      query: ({ businessId, start, end }) =>
+        `/business/business/${businessId}/detailed-slots-range?start=${start}&end=${end}`,
+    }),
   }),
 });
 
@@ -125,4 +137,5 @@ export const {
   useGetAllTimeIntervalsForBusinessQuery,
   useGetAppointmentByTimeSlotQuery,
   useCheckBusinessAddPermissionQuery,
+  useGetWeeklyDetailedSlotsQuery,
 } = businessApi;
