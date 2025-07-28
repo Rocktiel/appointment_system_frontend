@@ -21,7 +21,7 @@ Uygulama, müşterilerin işletmeleri keşfetmesini, müsait zaman dilimlerini g
 
 ---
 
-Kullanıcı rolleri:
+# Kullanıcı Rolleri
 
 - **Customer** – Randevu oluşturur
 - **Business** – Randevuları, işletmesini ve takvimini yönetir
@@ -106,6 +106,44 @@ src/
 ```
 
 ## 🖼️ Ekran Görüntüleri
+
+### Ana Sayfa Ekranı
+
+![Ana Sayfa](./public/project_images/home_page.png)
+
+### Paketler Ekranı
+
+![Paketler](./public/project_images/packages_page.png)
+
+### Kayıt Ekranı
+
+![Kayıt](./public/project_images/register_page.png)
+
+### Giriş Ekranı
+
+Kullanıcı e-mail ve şifresi ile giriş yapabilir.
+
+![Giriş](./public/project_images/login_page.png)
+
+### E-mail Doğrulama
+
+![E-mail Doğrulama](./public/project_images/confirm_email.png)
+
+### Ana Sayfa Ekranı
+
+![Ana Sayfa](./public/project_images/home_page.png)
+
+### Ana Sayfa Ekranı
+
+![Ana Sayfa](./public/project_images/home_page.png)
+
+### Ana Sayfa Ekranı
+
+![Ana Sayfa](./public/project_images/home_page.png)
+
+### Ana Sayfa Ekranı
+
+![Ana Sayfa](./public/project_images/home_page.png)
 
 ### Ana Sayfa Ekranı
 
