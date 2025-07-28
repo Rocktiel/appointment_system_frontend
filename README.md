@@ -27,7 +27,7 @@ Uygulama, müşterilerin işletmeleri keşfetmesini, müsait zaman dilimlerini g
 - **Business** – Randevuları, işletmesini ve takvimini yönetir
 - **Admin** – Paketleri ve işletmeleri yönetir
 
-# Dosya Yapsısı
+# Dosya Yapısı
 
 Bu proje, Next.js App Router'ın modern dosya tabanlı yönlendirme ve düzenleme yapısını kullanır.
 
@@ -109,55 +109,71 @@ src/
 
 ## Ana Sayfa Ekranı
 
+Ziyaretçilere sistemin işleyişi, özellikleri ve avantajları hakkında genel bir tanıtım sunar. Kullanıcıyı yönlendiren birinci temas noktasıdır.İşletmeleri keşfetme, paketleri inceleme ve sisteme giriş yapma seçeneklerini sunar.
 ![Ana Sayfa](./public/project_images/home_page.png)
 
 ## Paketler Ekranı
 
+İşletmelerin ihtiyacına uygun planları seçebileceği detaylı paket listesidir. Fiyatlar ve kapsamlar açıkça gösterilir.
 ![Paketler](./public/project_images/packages_page.png)
 
 ## Kayıt Ekranı
 
+Yeni kullanıcıların (İşletme Sahibi rolünde) sisteme kaydolabileceği form. E-posta ve şifre gibi temel bilgileri toplar.
 ![Kayıt](./public/project_images/register_page.png)
 
 ## Giriş Ekranı
 
-Kullanıcı e-mail ve şifresi ile giriş yapabilir.
+Kayıtlı kullanıcıların (Admin veya İşletme Sahibi) e-posta ve şifreleri ile sisteme güvenli bir şekilde giriş yapabileceği arayüz. Başarılı giriş sonrası JWT tabanlı kimlik doğrulama sistemiyle kullanıcılar rollerine göre ilgili panele yönlendirilir.
 
 ![Giriş](./public/project_images/login_page.png)
 
 ## E-mail Doğrulama
 
+Kayıt işleminden sonra kullanıcının e-posta adresine gönderilen doğrulama kodunu girerek hesabını aktive edebileceği sayfa.
 ![E-mail Doğrulama](./public/project_images/confirm_email.png)
+
+#### Kod Maili
+
+Kullanıcının e-posta adresine gönderilen, hesap doğrulama için gerekli olan tek kullanımlık kodu içeren e-posta örneği.
 ![E-mail Doğrulama Maili](./public/project_images/mail_code.png)
 
 ## İşletme Paket Seçme Ekranı
 
+İşletme sahiplerinin kendi işletmelerini oluşturmadan önce, ihtiyaçlarına en uygun abonelik paketini seçebileceği arayüz. İşletme herhangi bir pakete abone olmadan önce kayıt olabilir ama herhangi bir abonelik almadan işletme oluşturamaz.
 ![İşletme Paket Seçme](./public/project_images/business_select_page.png)
 
 ## İşletme Ekleme Ekranı
 
+İşletme sahiplerinin, işletmelerinin temel bilgilerini (adı, adresi, iletişim bilgileri, konumu vb.) sisteme girebileceği form. Google Haritalar entegrasyonu ile konum belirleme kolaylığı sunar.
 ![İşletme Ekleme](./public/project_images/business_create_page.png)
 
 ## İşletme Detay Ekranı
 
+İşletme sahibinin kendi işletmesinin genel bilgilerini görüntüleyebileceği ve düzenleyebileceği detay sayf
 ![İşletme Detay](./public/project_images/business_detail_page.png)
 
 ## İşletme Hizmet Yönetimi Ekranı
 
+İşletme sahiplerinin, sundukları hizmetleri (örn: saç kesimi, masaj) ekleyebileceği, düzenleyebileceği ve silebileceği yönetim paneli. Her hizmetin adı, süresi ve fiyatı gibi detayları belirlenir.
 ![İşletme Hizmet Yönetimi](./public/project_images/add_services_page.png)
 
 ## İşletme Zaman Aralıkları Yönetimi Ekranı
 
+İşletme sahiplerinin, haftanın belirli günleri için çalışma saatlerini ve randevu alınabilecek zaman aralıklarını (slotları) belirleyebileceği ekran. Bu sayede müşteriler sadece müsait zaman dilimlerini görebilir. İşletme sahiplerine her günü ayrı zaman dilimlerine bölme özgürlüğü sunar.
 ![İşletme Zaman Aralıkları Yönetimi](./public/project_images/add_timeslots_page.png)
 
 ## İşletme Randevu Yönetimi Ekranı
 
+İşletme sahiplerinin kendilerine ait randevuları listeleyebileceği, detaylarını görüntüleyebileceği yönetim paneli.
 ![İşletme Randevu Yönetimi](./public/project_images/appointment_management.png)
 
 ## İşletme Takvim Ekranı
 
+İşletme sahiplerinin randevularını takvim görünümünde kolayca takip edebileceği, günlük veya haftalık bazda müsaitlik durumlarını ve dolu slotları görsel olarak görebileceği arayüz.
 ![İşletme Takvim](./public/project_images/business_calendar.png)
 
 ## Müşteri Randevu Ekranı
 
+Müşterilerin belirli bir işletme için randevu alabileceği ana sayfa. İşletme bilgilerini, müsait zaman dilimlerini ve hizmetleri görüntüleyerek randevu formunu doldurabilirler ve telefon doğrulaması ile hızlıca kolay bir şekilde randevularını oluşturabilirler.
 ![Müşteri Randevu](./public/project_images/appointment_page.png)
