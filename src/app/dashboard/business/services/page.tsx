@@ -109,37 +109,6 @@ export default function ServicesPage() {
       toast.error(err?.data?.message || "Hizmet eklenirken bir hata oluştu.");
     }
   };
-  // const handleAddService = async () => {
-  //   if (!selectedBusinessId) {
-  //     toast.error("Lütfen önce bir işletme seçin.");
-  //     return;
-  //   }
-
-  //   try {
-  //     await createService({
-  //       businessId: Number(selectedBusinessId),
-  //       name: newServiceForm.name,
-  //       price: Number(newServiceForm.price),
-  //       duration_minutes: Number(newServiceForm.duration_minutes),
-  //     }).unwrap();
-
-  //     toast.success("Hizmet başarıyla eklendi!");
-  //     setNewServiceForm({ name: "", price: "", duration_minutes: "" });
-  //     refetch();
-  //   } catch (err: any) {
-  //     if (err?.status === 401 || err?.data?.message === "Invalid Token") {
-  //       // Token geçersizse kullanıcıyı login sayfasına yönlendir
-  //       toast.error("Oturum süreniz doldu. Lütfen tekrar giriş yapın.");
-  //       // Cookie'leri temizle
-
-  //       // Login sayfasına yönlendir
-  //       window.location.href =
-  //         "/login?redirect=" + encodeURIComponent(window.location.pathname);
-  //     } else {
-  //       toast.error(err?.data?.message || "Hizmet eklenirken bir hata oluştu.");
-  //     }
-  //   }
-  // };
   const handleDelete = async (serviceId: number) => {
     if (!selectedBusinessId) {
       toast.error("İşletme seçili değil.");

@@ -2,7 +2,6 @@ import {
   BaseQueryFn,
   createApi,
   FetchArgs,
-  fetchBaseQuery,
   FetchBaseQueryError,
 } from "@reduxjs/toolkit/query/react";
 import type {
@@ -14,8 +13,6 @@ import type {
   Appointment,
   AppointmentRequest, // 👈 yeni model
 } from "@/models/business.model";
-import { logout, setCredentials } from "@/lib/slices/authSlice";
-import { RootState } from "@/lib/store";
 import { baseQueryWithReauth } from "./baseQueryWithReauth";
 interface TimeSlot {
   id: number;

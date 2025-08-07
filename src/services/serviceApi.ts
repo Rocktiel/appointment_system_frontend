@@ -1,16 +1,6 @@
 // services/serviceApi.ts
-import { logout, setCredentials } from "@/lib/slices/authSlice";
-import { RootState } from "@/lib/store";
-import {
-  BaseQueryFn,
-  createApi,
-  FetchArgs,
-  fetchBaseQuery,
-  FetchBaseQueryError,
-} from "@reduxjs/toolkit/query/react";
+import { createApi } from "@reduxjs/toolkit/query/react";
 import { baseQueryWithReauth } from "./baseQueryWithReauth";
-
-const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export interface Service {
   id: number;

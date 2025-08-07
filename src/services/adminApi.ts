@@ -1,8 +1,6 @@
 // services/adminApi.ts
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { createApi } from "@reduxjs/toolkit/query/react";
 import { baseQueryWithReauth } from "./baseQueryWithReauth";
-
-const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 // GÜNCELLENDİ: Package interface'i, sağladığınız response'a göre ayarlandı
 export interface Package {

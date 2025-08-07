@@ -1,5 +1,3 @@
-import { AuthGuard } from "@/components/AuthGuard";
-
 interface DashboardLayoutProps {
   children: React.ReactNode;
 }

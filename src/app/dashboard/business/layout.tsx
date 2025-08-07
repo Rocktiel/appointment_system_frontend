@@ -1,4 +1,3 @@
-import { AuthGuard } from "@/components/AuthGuard";
 import Sidebar from "@/components/dashboard/business/Sidebar";
 import React from "react";
 // Sidebar bileşeninizin yolunu doğru şekilde import edin

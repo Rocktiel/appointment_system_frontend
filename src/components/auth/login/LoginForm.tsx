@@ -12,7 +12,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { Mail, Lock, Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
@@ -20,12 +20,9 @@ import { useRouter } from "next/navigation";
 import { loginSchema } from "@/lib/zodSchemas";
 import { useAppDispatch } from "@/lib/hooks";
 import { useLoginMutation } from "@/services/authApi";
-import { selectIsAuthenticated, setCredentials } from "@/lib/slices/authSlice";
-import { useSelector } from "react-redux";
+import { setCredentials } from "@/lib/slices/authSlice";
 
 type LoginFormValues = z.infer<typeof loginSchema>;
-
-const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export default function LoginForm() {
   const [loading, setLoading] = useState(false);
@@ -43,7 +40,7 @@ export default function LoginForm() {
     },
   });
 
-  const [login, { isLoading }] = useLoginMutation();
+  const [login] = useLoginMutation();
 
   const onSubmit = async (values: LoginFormValues) => {
     setError(null); // Önceki hataları temizle

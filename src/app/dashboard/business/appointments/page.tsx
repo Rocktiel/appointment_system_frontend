@@ -22,7 +22,6 @@ const BusinessAppointmentsPage = () => {
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
   const [selectedDayId, setSelectedDayId] = useState<number | null>(null); // Bu şu an kullanılmıyor gibi görünüyor, silinebilir
   const [formattedDate, setFormattedDate] = useState<string | null>(null); // Bu da kullanılmıyor gibi görünüyor, silinebilir
-
   const [selectedSlot, setSelectedSlot] = useState<DetailedTimeSlot | null>(
     null
   ); // Tipi DetailedTimeSlot olarak güncelledik

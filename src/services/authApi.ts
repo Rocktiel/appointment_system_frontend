@@ -34,14 +34,14 @@
 //   }),
 //   tagTypes: ["Auth"], // Cache tags
 //   endpoints: (builder) => ({
-//     login: builder.mutation<AuthResponse, LoginRequest>({
-//       query: (credentials) => ({
-//         url: "login",
-//         method: "POST",
-//         body: credentials,
-//       }),
-//       invalidatesTags: ["Auth"],
-//     }),
+// login: builder.mutation<AuthResponse, LoginRequest>({
+//   query: (credentials) => ({
+//     url: "login",
+//     method: "POST",
+//     body: credentials,
+//   }),
+//   invalidatesTags: ["Auth"],
+// }),
 //     register: builder.mutation<AuthResponse, RegisterRequest>({
 //       query: (data) => ({
 //         url: "register",
