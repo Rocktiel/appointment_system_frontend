@@ -218,6 +218,12 @@ const CheckUserPackage = () => {
       <div className="text-center space-y-4">
         <h2 className="text-2xl font-semibold">Paketiniz bulunamadı</h2>
         <p>Lütfen bir paket seçerek hizmetleri kullanmaya başlayın.</p>
+        <button
+          onClick={() => setShowPackageModal(true)}
+          className="px-4 py-2 bg-blue-600 text-white rounded-md"
+        >
+          Paket Seç
+        </button>
         <PackageDialog
           open={showPackageModal}
           onOpenChange={setShowPackageModal}
