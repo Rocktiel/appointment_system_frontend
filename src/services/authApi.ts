@@ -134,7 +134,7 @@ export const authApi = createApi({
       { email: string; confirmCode: string }
     >({
       query: (body) => ({
-        url: "/confirm-email",
+        url: "/auth/confirm-email",
         method: "POST",
         body,
       }),
