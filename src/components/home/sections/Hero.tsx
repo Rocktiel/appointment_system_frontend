@@ -7,6 +7,8 @@ export default function Hero() {
   return (
     <div className="relative w-full h-[60vh] md:h-[70vh] lg:h-screen overflow-hidden pt-14 flex items-center justify-end">
       <Image
+        width={1920}
+        height={1080}
         src="/zorr.png"
         alt="Randevu Yönetimi"
         className="absolute inset-0 w-full h-full object-cover object-left mt-20 md:object-cover"

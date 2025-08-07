@@ -38,6 +38,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form"; // Using shadcn/ui form
+import { toast } from "sonner";
 
 const businessSchema = z.object({
   businessName: z.string().min(2, "İşletme adı en az 2 karakter olmalıdır."),
@@ -108,9 +109,10 @@ const CreateBusinessPage = () => {
       alert("İşletme başarıyla eklendi!"); // Replace with toast notification if available
       form.reset(); // Formu sıfırla
     } catch (e: any) {
-      console.error("İşletme oluşturma hatası:", e);
       // Backend'den gelen hata mesajını göstermek daha iyi olur
-      alert(e?.data?.message || "İşletme oluşturulurken bir hata oluştu."); // Replace with toast notification
+      toast.error(
+        e?.data?.message || "İşletme oluşturulurken bir hata oluştu."
+      ); // Replace with toast notification
     }
   };
 
