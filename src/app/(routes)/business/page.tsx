@@ -1,4 +1,4 @@
-"use client";
+//TODO : İşbirlikleri varsa eklenecek. Belki veritabanından çekilebilir.
 
 import { Building2, Handshake, Users2 } from "lucide-react";
 

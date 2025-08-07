@@ -82,8 +82,8 @@ const ManageBusinessesPage = () => {
     watch,
     trigger,
   } = form; // Add watch and trigger
-  let currentLat = watch("lat");
-  let currentLng = watch("lng");
+  const currentLat = watch("lat");
+  const currentLng = watch("lng");
   const selectedBusinessId = watch("businessId");
 
   // Effect to set default map location when a business is selected
@@ -103,8 +103,8 @@ const ManageBusinessesPage = () => {
           lng: Number(selectedBiz.lng),
           isLocationVisible: selectedBiz.isLocationVisible,
         });
-        currentLat = Number(selectedBiz.lat);
-        currentLng = Number(selectedBiz.lng);
+        // currentLat = Number(selectedBiz.lat);
+        // currentLng = Number(selectedBiz.lng);
         // Manually trigger validation for lat/lng after reset if needed
         trigger(["lat", "lng"]);
       }

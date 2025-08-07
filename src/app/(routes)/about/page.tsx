@@ -1,5 +1,3 @@
-"use client";
-
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-gray-900 text-white py-20 px-4 mt-5 sm:px-6 lg:px-8 pt-24">

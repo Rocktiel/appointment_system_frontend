@@ -49,16 +49,16 @@
 //         body: data,
 //       }),
 //     }),
-//     confirmEmail: builder.mutation<
-//       { message: string },
-//       { email: string; confirmCode: string }
-//     >({
-//       query: (body) => ({
-//         url: "/confirm-email",
-//         method: "POST",
-//         body,
-//       }),
-//     }),
+// confirmEmail: builder.mutation<
+//   { message: string },
+//   { email: string; confirmCode: string }
+// >({
+//   query: (body) => ({
+//     url: "/confirm-email",
+//     method: "POST",
+//     body,
+//   }),
+// }),
 //     // Yeni eklenen endpointler
 //     verifyToken: builder.query<{ user: User; isValid: boolean }, void>({
 //       query: () => ({
@@ -129,6 +129,16 @@ export const authApi = createApi({
         body: userData,
       }),
     }),
+    confirmEmail: builder.mutation<
+      { message: string },
+      { email: string; confirmCode: string }
+    >({
+      query: (body) => ({
+        url: "/confirm-email",
+        method: "POST",
+        body,
+      }),
+    }),
     refreshToken: builder.mutation({
       query: () => ({
         url: "/auth/refresh",
@@ -157,6 +167,7 @@ export const authApi = createApi({
 export const {
   useLoginMutation,
   useRegisterMutation,
+  useConfirmEmailMutation,
   useRefreshTokenMutation,
   useVerifyTokenQuery,
   useGetMeQuery,

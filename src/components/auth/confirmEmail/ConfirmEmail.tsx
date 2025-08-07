@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { MailCheck, Loader2, Info } from "lucide-react";
 import { useConfirmEmailMutation } from "@/services/authApi";
+
 export default function ConfirmEmail() {
   const [code, setCode] = useState("");
   const [message, setMessage] = useState<string | null>(null);
