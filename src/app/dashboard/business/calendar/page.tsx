@@ -1,4 +1,4 @@
-import WeeklyCalendar from "@/components/WeeklyCalendar";
+import WeeklyCalendar from "@/components/dashboard/business/calendar/WeeklyCalendar";
 import React from "react";
 
 export default function CalendarPage() {

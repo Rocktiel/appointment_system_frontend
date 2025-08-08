@@ -1,6 +1,5 @@
 import Sidebar from "@/components/dashboard/business/Sidebar";
 import React from "react";
-// Sidebar bileşeninizin yolunu doğru şekilde import edin
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 interface BusinessLayoutProps {

@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { tr } from "date-fns/locale/tr";
 import { useGetWeeklyDetailedSlotsQuery } from "@/services/businessApi";
-import BusinessSelector2 from "./dashboard/business/BusinessSelector2";
+import BusinessSelector2 from "../BusinessSelector2";
 type Slot = {
   id: number;
   start_time: string;
