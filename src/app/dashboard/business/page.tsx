@@ -4,8 +4,9 @@ import {
   useGetUserPackageQuery,
   useGetPackagesQuery,
 } from "@/services/businessApi";
-import CheckUserPackage from "@/components/dashboard/business/CheckUserPackage";
+
 import BusinessStatisticsPage from "./statistics/page";
+import CheckUserPackage from "@/components/dashboard/business/subscription/CheckUserPackage";
 
 const BusinessDashboard = () => {
   const { data: userPackageData, isLoading: isUserPackageLoading } =

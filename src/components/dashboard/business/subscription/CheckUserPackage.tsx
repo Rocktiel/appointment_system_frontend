@@ -147,11 +147,12 @@ import {
   useGetUserPackageQuery,
   useSubscribeToPackageMutation,
 } from "@/services/businessApi";
-import PackageDialog from "./PackageDialog";
+
 import { useGetPackagesQuery } from "@/services/adminApi";
 import { useState } from "react";
 import { useAppSelector } from "@/lib/hooks";
 import { useRouter } from "next/navigation";
+import PackageDialog from "../PackageDialog";
 
 const CheckUserPackage = () => {
   const token = useAppSelector((state) => state.auth.accessToken);

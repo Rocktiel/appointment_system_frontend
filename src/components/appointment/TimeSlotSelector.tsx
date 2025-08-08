@@ -45,7 +45,7 @@ export default function TimeSlotSelector({
         name="selectedDate"
         render={({ field }) => (
           <FormItem className="flex flex-col">
-            <FormLabel className="text-gray-700 dark:text-gray-300">
+            <FormLabel className="text-gray-700 text-lg">
               Randevu Tarihi
             </FormLabel>
             <Popover>
@@ -89,7 +89,7 @@ export default function TimeSlotSelector({
         name="selectedTimeSlot"
         render={({ field }) => (
           <FormItem>
-            <FormLabel className="text-gray-700 dark:text-gray-300">
+            <FormLabel className="text-gray-700 text-lg">
               Müsait Zaman Dilimi
             </FormLabel>
             {loadingSlots ? (
@@ -111,7 +111,7 @@ export default function TimeSlotSelector({
                       slot.isAvailableForBooking && field.onChange(slot.id);
                     }}
                     className={cn(
-                      "flex items-center justify-center p-2 rounded-md border transition",
+                      "flex items-center justify-center p-2 rounded-md border transition cursor-pointer",
                       slot.isAvailableForBooking
                         ? field.value === slot.id
                           ? "bg-blue-600 hover:bg-blue-700 text-white dark:bg-blue-500 dark:hover:bg-blue-600 border-blue-600"

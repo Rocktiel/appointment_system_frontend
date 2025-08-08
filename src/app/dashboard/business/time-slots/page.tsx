@@ -9,7 +9,7 @@ import {
 } from "@/services/businessApi";
 import { Business } from "@/models/business.model";
 import { Button } from "@/components/ui/button";
-import { DateTimePickerV2 } from "@/components/dashboard/business/date-time-picker-v2";
+import { DateTimePickerV2 } from "@/components/dashboard/business/time-slots/date-time-picker-v2";
 import {
   Select,
   SelectTrigger,
@@ -20,6 +20,8 @@ import {
 import { toast } from "sonner";
 import { Label } from "@/components/ui/label";
 import { DAYS } from "./Days";
+import { Day } from "react-day-picker";
+import DaySelection from "@/components/dashboard/business/DaySelection";
 
 const BusinessTimeSlotsPage = () => {
   const { data: businesses } = useGetUserBusinessesQuery();
@@ -115,8 +117,11 @@ const BusinessTimeSlotsPage = () => {
           ))}
         </SelectContent>
       </Select>
-
-      <Label htmlFor="day-select" className="text-right">
+      <DaySelection
+        selectedDayId={selectedDayId}
+        setSelectedDayId={setSelectedDayId}
+      />
+      {/* <Label htmlFor="day-select" className="text-right">
         Gün Seç
       </Label>
       <Select
@@ -133,7 +138,7 @@ const BusinessTimeSlotsPage = () => {
             </SelectItem>
           ))}
         </SelectContent>
-      </Select>
+      </Select> */}
 
       {/* Yeni zaman aralığı ekleme */}
       <DateTimePickerV2 onSubmit={handleTimeSlotCreate} />

@@ -1,4 +1,3 @@
-// components/business-appointment/ServiceSelector.tsx
 import React from "react";
 import {
   FormField,
@@ -6,11 +5,10 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Button } from "@/components/ui/button";
-import { Clock, Loader2 } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { Loader2 } from "lucide-react";
 import type { Service } from "@/services/serviceApi";
 import { UseFormReturn } from "react-hook-form"; // UseFormReturn'ı import edin
+import ServiceSelectCard from "./ServiceSelectCard";
 
 interface ServiceSelectorProps {
   form: UseFormReturn<any>; // Dinamik form tipi için any kullanılabilir veya özel tip oluşturulabilir
@@ -29,7 +27,7 @@ export default function ServiceSelector({
       name="selectedService"
       render={({ field }) => (
         <FormItem>
-          <FormLabel className="text-gray-700 dark:text-gray-300">
+          <FormLabel className="text-gray-700 text-lg">
             Almak İstediğiniz Hizmet
           </FormLabel>
           {loadingServices ? (
@@ -42,24 +40,7 @@ export default function ServiceSelector({
               Hizmet Bulunamadı.
             </div>
           ) : (
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
-              {services.map((service) => (
-                <Button
-                  key={service.id}
-                  type="button"
-                  onClick={() => field.onChange(service.id)}
-                  className={cn(
-                    "flex items-center justify-center p-2 rounded-md border transition",
-                    Number(field.value) === service.id
-                      ? "bg-blue-600 text-white hover:bg-blue-700 border-blue-600"
-                      : "bg-gray-100 text-gray-800 hover:bg-gray-200 border-gray-300"
-                  )}
-                >
-                  <Clock className="h-4 w-4 mr-1 sm:mr-2" />
-                  <span className="text-xs sm:text-sm">{service.name}</span>
-                </Button>
-              ))}
-            </div>
+            <ServiceSelectCard services={services} field={field} />
           )}
           <FormMessage />
         </FormItem>

@@ -1,8 +1,8 @@
 "use client";
-import AppointmentDetails from "@/components/dashboard/business/AppointmentDetails";
-import BusinessSelector2 from "@/components/dashboard/business/BusinessSelector2";
+import AppointmentDetails from "@/components/dashboard/business/appointments/AppointmentDetails";
+import BusinessSelector2 from "@/components/dashboard/business/shared/BusinessSelector2";
 import DateSelector from "@/components/dashboard/business/DateSelection";
-import TimeSlots from "@/components/dashboard/business/TimeSlots"; // Güncellenmiş TimeSlots bileşeni
+import TimeSlots from "@/components/dashboard/business/time-slots/TimeSlots"; // Güncellenmiş TimeSlots bileşeni
 import { useState } from "react";
 // DetailedTimeSlot tipi için, models/customer.model'dan değil,
 // artık API tanımlarınızla uyumlu olan lib/api-requests.ts veya services/customerApi.ts'den import etmek daha doğru olacaktır.

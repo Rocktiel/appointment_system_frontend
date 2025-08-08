@@ -75,8 +75,8 @@ export default function AppointmentForm({
   loadingServices,
 }: AppointmentFormProps) {
   return (
-    <section className="pt-6 border-t border-gray-200 dark:border-gray-700">
-      <h2 className="text-2xl font-bold text-gray-900 dark:text-white border-b pb-2 mb-4">
+    <section className="pt-2 ">
+      <h2 className="text-4xl font-bold text-gray-900  pb-2 mb-4 text-center">
         Randevu Oluştur
       </h2>
 
@@ -118,14 +118,16 @@ export default function AppointmentForm({
             services={services}
             loadingServices={loadingServices}
           />
-
+          <h2 className="text-2xl font-bold text-gray-900  pb-2 mb-4 text-center">
+            Müşteri Bilgileri
+          </h2>
           {/* Müşteri Adı */}
           <FormField
             control={form.control}
             name="customerName"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-gray-700 dark:text-gray-300">
+                <FormLabel className="text-gray-700 text-lg">
                   Adınız Soyadınız
                 </FormLabel>
                 <Input placeholder="Adınız Soyadınız" {...field} />
@@ -140,14 +142,21 @@ export default function AppointmentForm({
             name="customerPhone"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-gray-700 dark:text-gray-300">
-                  Telefon Numaranız (Örn: 05xx xxx xx xx)
+                <FormLabel className="text-gray-700  text-lg">
+                  Telefon Numaranız (Örn: 5xx xxx xx xx)
                 </FormLabel>
                 <Input
-                  placeholder="05xx xxx xx xx"
-                  {...field}
+                  placeholder="5xx xxx xx xx"
                   type="tel"
                   inputMode="numeric"
+                  value={field.value?.replace(/^\+90/, "") || ""} // inputta +90 göstermiyoruz
+                  onChange={(e) => {
+                    let val = e.target.value.replace(/\D/g, ""); // sadece rakamlar
+                    if (val.startsWith("0")) {
+                      val = val.slice(1); // baştaki 0'ı kaldır
+                    }
+                    field.onChange(`+90${val}`); // form değerine +90 ile kaydet
+                  }}
                 />
                 <FormMessage />
               </FormItem>
@@ -160,7 +169,7 @@ export default function AppointmentForm({
             name="note"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-gray-700 dark:text-gray-300">
+                <FormLabel className="text-gray-700  text-lg">
                   Ek Not (İsteğe Bağlı)
                 </FormLabel>
                 <Textarea
@@ -173,7 +182,11 @@ export default function AppointmentForm({
             )}
           />
 
-          <Button type="submit" className="w-full py-2.5" disabled={isBooking}>
+          <Button
+            type="submit"
+            className="w-full py-2.5 cursor-pointer"
+            disabled={isBooking}
+          >
             {isBooking ? (
               <>
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />

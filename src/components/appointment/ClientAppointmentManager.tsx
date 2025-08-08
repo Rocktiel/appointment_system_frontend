@@ -305,6 +305,21 @@ export function ClientAppointmentManager({
         form={verificationForm}
         onVerificationSubmit={onVerificationSubmit}
         isSubmitting={verificationForm.formState.isSubmitting}
+        appointmentData={
+          tempAppointmentData
+            ? {
+                customerName: tempAppointmentData.customerName,
+                customerPhone: tempAppointmentData.customerPhone,
+                selectedDate: tempAppointmentData.selectedDate,
+                selectedService: tempAppointmentData.selectedService,
+                note: tempAppointmentData.note,
+                timeSlot: detailedTimeSlots.find(
+                  (slot) => slot.id === tempAppointmentData.selectedTimeSlot
+                ),
+              }
+            : undefined
+        }
+        services={services}
       />
     </div>
   );

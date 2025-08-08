@@ -5,6 +5,8 @@ import {
   Clock4,
   Settings,
   Home,
+  Boxes,
+  MapPinPlus,
 } from "lucide-react";
 import { ReactNode } from "react";
 
@@ -27,7 +29,7 @@ export const menuItems: MenuItem[] = [
   },
   {
     label: "İşletme Ekle",
-    icon: <Building2 size={20} />,
+    icon: <MapPinPlus size={20} />,
     path: "createBusiness",
   },
   {
@@ -49,6 +51,11 @@ export const menuItems: MenuItem[] = [
     label: "Zaman Dilimleri",
     icon: <Clock4 size={20} />,
     path: "time-slots",
+  },
+  {
+    label: "Aboneliğim",
+    icon: <Boxes size={20} />,
+    path: "subscription",
   },
   {
     label: "Ayarlar",

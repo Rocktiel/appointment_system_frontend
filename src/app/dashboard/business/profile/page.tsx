@@ -29,7 +29,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import BusinessSelector from "@/components/dashboard/business/BusinessSelector";
+import BusinessSelector from "@/components/dashboard/business/shared/BusinessSelector";
 
 // Zod schema for validation
 const updateSchema = z.object({
