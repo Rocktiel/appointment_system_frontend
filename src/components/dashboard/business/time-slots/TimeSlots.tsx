@@ -18,12 +18,14 @@ interface DetailedTimeSlot {
 interface TimeSlotsProps {
   timeSlots: DetailedTimeSlot[]; // Tipi DetailedTimeSlot[] olarak değiştirdik
   onSelect: (slot: DetailedTimeSlot) => void;
+
   selectedSlotId: number | null;
 }
 
 const TimeSlots: React.FC<TimeSlotsProps> = ({
   timeSlots,
   onSelect,
+
   selectedSlotId,
 }) => {
   return (

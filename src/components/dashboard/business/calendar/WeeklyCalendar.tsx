@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { format, addWeeks, subWeeks, startOfWeek, addDays } from "date-fns";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { cn, formatPhoneNumber } from "@/lib/utils";
 import { tr } from "date-fns/locale/tr";
 import { useGetWeeklyDetailedSlotsQuery } from "@/services/businessApi";
 import BusinessSelector2 from "../shared/BusinessSelector2";
@@ -12,6 +12,8 @@ type Slot = {
   start_time: string;
   end_time: string;
   isAvailableForBooking: boolean;
+  customerName?: string; // Optional, if there's a booking
+  customerPhone?: string; // Optional, if there's a booking
 };
 
 export default function WeeklyCalendar() {
@@ -42,6 +44,8 @@ export default function WeeklyCalendar() {
     businessId: Number(selectedBusinessId),
     start,
     end,
+    customerName: undefined, // İsteğe bağlı parametreler
+    customerPhone: undefined,
   });
 
   return (
@@ -59,7 +63,11 @@ export default function WeeklyCalendar() {
       ) : (
         <>
           <div className="flex items-center justify-between mb-4">
-            <Button variant="outline" onClick={handlePrevWeek}>
+            <Button
+              variant="outline"
+              onClick={handlePrevWeek}
+              className="cursor-pointer"
+            >
               Önceki Hafta
             </Button>
             <h2 className="text-xl font-semibold">
@@ -68,7 +76,11 @@ export default function WeeklyCalendar() {
                 locale: tr,
               })}
             </h2>
-            <Button variant="outline" onClick={handleNextWeek}>
+            <Button
+              variant="outline"
+              onClick={handleNextWeek}
+              className="cursor-pointer"
+            >
               Sonraki Hafta
             </Button>
           </div>
@@ -82,11 +94,12 @@ export default function WeeklyCalendar() {
               {weekDates.map((date) => {
                 const formattedDate = format(date, "yyyy-MM-dd");
                 const slots = data?.[formattedDate] || [];
+                console.log("Slots for date:", formattedDate, slots);
 
                 return (
                   <div key={formattedDate} className="border-r last:border-r-0">
-                    <div className="bg-gray-100 p-2 text-center font-semibold border-b">
-                      {format(date, "EEE dd MMM", { locale: tr })}
+                    <div className="bg-gray-100 p-1 text-md text-center font-semibold border-b">
+                      {format(date, "dd MMM EEEE ", { locale: tr })}
                     </div>
                     <div className="p-2 space-y-2">
                       {slots.length === 0 ? (
@@ -98,13 +111,23 @@ export default function WeeklyCalendar() {
                           <div
                             key={slot.id}
                             className={cn(
-                              "text-sm px-2 py-1 rounded-md text-center border h-15 items-center justify-center flex",
+                              "text-sm px-2 py-1 rounded-md text-center border h-20 items-center justify-center flex flex-col gap-1",
                               slot.isAvailableForBooking
                                 ? "bg-green-100 border-green-400 text-green-800"
                                 : "bg-red-100 border-red-400 text-red-800"
                             )}
                           >
-                            {slot.start_time} - {slot.end_time}
+                            <div>
+                              {slot.start_time} - {slot.end_time}
+                            </div>
+
+                            {!slot.isAvailableForBooking &&
+                              slot.customerName && (
+                                <div className="text-xs text-gray-600">
+                                  {slot.customerName} <br />
+                                  {formatPhoneNumber(slot.customerPhone)}
+                                </div>
+                              )}
                           </div>
                         ))
                       )}

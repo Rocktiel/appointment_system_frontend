@@ -11,14 +11,18 @@ import type {
   TimeInterval, // 👈 yeni model
   CreateTimeIntervalRequest,
   Appointment,
-  AppointmentRequest, // 👈 yeni model
+  AppointmentRequest,
+  InitiateAppointmentBookingRequest, // 👈 yeni model
 } from "@/models/business.model";
 import { baseQueryWithReauth } from "./baseQueryWithReauth";
+
 interface TimeSlot {
   id: number;
   start_time: string;
   end_time: string;
   isAvailableForBooking: boolean;
+  customerName?: string; // Opsiyonel, eğer randevu varsa
+  customerPhone?: string; // Opsiyonel, eğer randevu varsa
 }
 interface Package {
   id: number;
@@ -35,7 +39,13 @@ interface Package {
 export const businessApi = createApi({
   reducerPath: "businessApi",
   baseQuery: baseQueryWithReauth,
-  tagTypes: ["Business", "SubscriptionPlan", "TimeInterval", "Package"],
+  tagTypes: [
+    "Business",
+    "SubscriptionPlan",
+    "TimeInterval",
+    "Package",
+    "Appointment",
+  ],
   endpoints: (builder) => ({
     // 🔹 İşletme oluşturma
     createBusiness: builder.mutation<{ data: Business }, BusinessRequest>({
@@ -142,10 +152,28 @@ export const businessApi = createApi({
     }),
     getWeeklyDetailedSlots: builder.query<
       Record<string, TimeSlot[]>, // Örn: { "2025-07-28": [TimeSlot, ...], ... }
-      { businessId: number; start: string; end: string }
+      {
+        businessId: number;
+        start: string;
+        end: string;
+        customerName?: string;
+        customerPhone?: string;
+      }
     >({
       query: ({ businessId, start, end }) =>
         `/business/business/${businessId}/detailed-slots-range?start=${start}&end=${end}`,
+    }),
+    createAppointment: builder.mutation<
+      { data: any; message: string },
+      InitiateAppointmentBookingRequest // Artık doğrudan request tipini alıyor
+    >({
+      query: (data) => ({
+        // 'data' parametresi artık doğrudan request objesi
+        url: `business/create-appointment`,
+        method: "POST",
+        body: data,
+      }),
+      invalidatesTags: ["Appointment"],
     }),
   }),
 });
@@ -165,4 +193,5 @@ export const {
   useGetAppointmentByTimeSlotQuery,
   useCheckBusinessAddPermissionQuery,
   useGetWeeklyDetailedSlotsQuery,
+  useCreateAppointmentMutation,
 } = businessApi;

@@ -69,6 +69,15 @@ export const customerApi = createApi({
       // keepUnusedDataFor: 300, // 5 dakika (varsayılan 60 saniye)
       // providesTags: (result, error, { businessId, date }) => [{ type: 'TimeSlots', id: `${businessId}-${date}` }],
     }),
+
+    getBusinessByLocation: builder.query<
+      BusinessDetails[],
+      { city: string; county: string }
+    >({
+      query: ({ city, county }) => `/by-location?city=${city}&county=${county}`,
+      // Opsiyonel: Verinin güncel tutulması için cache'i yeniden doğrulama
+      // providesTags: (result, error, { city, county }) => [{ type: 'Business', id: `${city}-${county}` }],
+    }),
   }),
 });
 
@@ -79,4 +88,5 @@ export const {
   useFinalizeAppointmentMutation,
   useGetBusinessBySlugQuery, // Artık bu bir RTK Query hook'u
   useGetDetailedTimeSlotsQuery, // Artık bu bir RTK Query hook'u
+  useGetBusinessByLocationQuery, // Yeni! Lokasyona göre işletmeleri çekmek için
 } = customerApi;

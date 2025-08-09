@@ -22,6 +22,8 @@ import { Label } from "@/components/ui/label";
 import { DAYS } from "./Days";
 import { Day } from "react-day-picker";
 import DaySelection from "@/components/dashboard/business/DaySelection";
+import BusinessSelector from "@/components/dashboard/business/shared/BusinessSelector";
+import BusinessSelector2 from "@/components/dashboard/business/shared/BusinessSelector2";
 
 const BusinessTimeSlotsPage = () => {
   const { data: businesses } = useGetUserBusinessesQuery();
@@ -94,79 +96,60 @@ const BusinessTimeSlotsPage = () => {
   };
 
   return (
-    <div className="p-4 space-y-4">
-      <h1 className="text-xl font-semibold">Zaman Dilimlerini Ayarla</h1>
+    <div className="p-4 space-y-4 ">
+      <h1 className="text-3xl font-bold">Zaman Dilimlerini Ayarla</h1>
 
-      {/* İşletme ve Gün Seçimi */}
-
-      <Label htmlFor="business-select" className="text-right">
-        İşletme Seç
-      </Label>
-      <Select
-        value={selectedBusinessId || ""}
-        onValueChange={(val) => setSelectedBusinessId(val)}
-      >
-        <SelectTrigger className="w-[200px]">
-          <SelectValue placeholder="İşletme Seç" />
-        </SelectTrigger>
-        <SelectContent>
-          {businesses?.map((b: Business) => (
-            <SelectItem key={b.id} value={b.id.toString()}>
-              {b.businessName}
-            </SelectItem>
-          ))}
-        </SelectContent>
-      </Select>
-      <DaySelection
-        selectedDayId={selectedDayId}
-        setSelectedDayId={setSelectedDayId}
-      />
-      {/* <Label htmlFor="day-select" className="text-right">
-        Gün Seç
-      </Label>
-      <Select
-        value={selectedDayId?.toString()}
-        onValueChange={(val) => setSelectedDayId(Number(val))}
-      >
-        <SelectTrigger className="w-[200px]">
-          <SelectValue placeholder="Gün Seç" />
-        </SelectTrigger>
-        <SelectContent>
-          {DAYS.map((d) => (
-            <SelectItem key={d.id} value={d.id.toString()}>
-              {d.name}
-            </SelectItem>
-          ))}
-        </SelectContent>
-      </Select> */}
-
-      {/* Yeni zaman aralığı ekleme */}
-      <DateTimePickerV2 onSubmit={handleTimeSlotCreate} />
-
-      {/* Var olan zaman aralıkları */}
-      {data && (
-        <div className="mt-6">
-          <h2 className="text-md font-medium mb-2">Ekli Zaman Dilimleri</h2>
-          <ul className="space-y-2">
-            {data?.data.map((slot: any) => (
-              <li
-                key={slot.id}
-                className="flex justify-between items-center border p-2 rounded"
-              >
-                <span>
-                  {slot.start_time} - {slot.end_time}
-                </span>
-                <Button
-                  variant="destructive"
-                  onClick={() => handleDeleteSlot(slot.id)}
-                >
-                  Sil
-                </Button>
-              </li>
-            ))}
-          </ul>
+      <div className="flex flex-col md:flex-row gap-4">
+        <BusinessSelector2
+          selectedBusinessId={selectedBusinessId}
+          onSelectBusiness={setSelectedBusinessId}
+        />
+        <DaySelection
+          selectedDayId={selectedDayId}
+          setSelectedDayId={setSelectedDayId}
+        />
+      </div>
+      {!selectedBusinessId ? (
+        <div className="text-center py-8 text-2xl text-muted-foreground">
+          Lütfen işletme seçiniz
+        </div>
+      ) : !selectedDayId ? (
+        <div className="text-center py-8 text-2xl text-muted-foreground">
+          Lütfen gün seçiniz
+        </div>
+      ) : (
+        <div className="flex flex-col md:flex-row gap-4">
+          <DateTimePickerV2 onSubmit={handleTimeSlotCreate} />
         </div>
       )}
+
+      {/* Var olan zaman aralıkları */}
+      <div>
+        {data && (
+          <div className="mt-6">
+            <h2 className="text-md font-medium mb-2">Ekli Zaman Dilimleri</h2>
+            <ul className="space-y-2 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              {data?.data.map((slot: any) => (
+                <li
+                  key={slot.id}
+                  className="flex justify-around items-center border p-2 rounded"
+                >
+                  <span>
+                    {slot.start_time} - {slot.end_time}
+                  </span>
+                  <Button
+                    variant="destructive"
+                    onClick={() => handleDeleteSlot(slot.id)}
+                    className="ml-2 cursor-pointer bg-red-600 hover:bg-red-700"
+                  >
+                    Sil
+                  </Button>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
 
       {isFetching && <p className="text-sm text-gray-500">Yükleniyor...</p>}
     </div>

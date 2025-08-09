@@ -20,7 +20,7 @@ const DaySelection = ({
   return (
     <div>
       {" "}
-      <Label htmlFor="day-select" className="text-right">
+      <Label htmlFor="day-select" className="text-right text-lg mb-2">
         Gün Seç
       </Label>
       <Select

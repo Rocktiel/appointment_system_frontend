@@ -35,6 +35,7 @@ export const baseQueryWithReauth: BaseQueryFn<
 
     if (refreshResult.data) {
       const { accessToken } = (refreshResult.data as any).data;
+      console.log("Token refreshed successfully:", accessToken);
       api.dispatch(setCredentials({ accessToken, refreshToken: null }));
       result = await baseQuery(args, api, extraOptions);
     } else {

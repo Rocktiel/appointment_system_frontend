@@ -17,6 +17,8 @@ export interface BusinessRequest {
   businessLocationUrl: string;
   isPhoneVisible: boolean;
   isLocationVisible: boolean;
+  city: string;
+  county: string;
   lat: number;
   lng: number;
 }
@@ -71,4 +73,16 @@ export interface AppointmentRequest {
   businessId: number;
   date: string;
   time_slot_template_id: number;
+}
+
+export interface InitiateAppointmentBookingRequest {
+  businessId: number; // string olarak kullanıyoruz
+  time_slot_template_id: number;
+  date: string; // "yyyy-MM-dd" formatında
+  start_time: string; // "HH:mm" formatında
+  end_time: string; // "HH:mm" formatında
+  customerName: string;
+  customerPhone: string;
+  serviceId: number; // Servis ID'si
+  note?: string; // Opsiyonel not alanı
 }

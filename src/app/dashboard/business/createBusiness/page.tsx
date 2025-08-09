@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -10,7 +10,7 @@ import {
 } from "@/services/businessApi";
 import { BusinessTypes } from "@/models/business.model"; // Assuming this is defined correctly
 import MapSelector from "@/components/MapSelector";
-
+import { cityData } from "@/lib/cities_districts";
 // Import Shadcn/ui components for better styling
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -39,6 +39,7 @@ import {
   FormMessage,
 } from "@/components/ui/form"; // Using shadcn/ui form
 import { toast } from "sonner";
+import CityCountySelector from "@/components/appointment/business/CityCountySelector";
 
 const businessSchema = z.object({
   businessName: z.string().min(2, "İşletme adı en az 2 karakter olmalıdır."),
@@ -57,6 +58,8 @@ const businessSchema = z.object({
   lng: z.number().min(-180, "Lütfen haritadan bir konum seçiniz.").max(180),
   isPhoneVisible: z.boolean(),
   isLocationVisible: z.boolean(),
+  city: z.string().min(1, "Lütfen bir şehir seçiniz."),
+  county: z.string().min(1, "Lütfen bir ilçe seçiniz."),
   businessWebsite: z.string().url("Geçerli bir URL giriniz.").optional(),
   businessDescription: z.string().optional(),
   businessLogo: z.string().url("Geçerli bir logo URL’si giriniz.").optional(),
@@ -70,7 +73,15 @@ const CreateBusinessPage = () => {
     isLoading: isLoadingPermission,
     isError: isPermissionError,
   } = useCheckBusinessAddPermissionQuery();
+  const [selectedCity, setSelectedCity] = useState("");
+  const [selectedCounty, setSelectedCounty] = useState("");
 
+  const handleLocationChange = (city: string, county: string) => {
+    setSelectedCity(city);
+    setSelectedCounty(county);
+    // Burada API çağrısı yapabilirsin
+    // örn: getBusinesses({ city, county })
+  };
   const [createBusiness, { isLoading, isSuccess, isError, error }] =
     useCreateBusinessMutation();
 
@@ -86,6 +97,8 @@ const CreateBusinessPage = () => {
       lng: 28.9784, // İstanbul varsayılan konum
       isPhoneVisible: false,
       isLocationVisible: false,
+      city: selectedCity,
+      county: selectedCounty,
       businessWebsite: "",
       businessDescription: "",
       businessLogo: "",
@@ -93,6 +106,7 @@ const CreateBusinessPage = () => {
   });
 
   const onSubmit = async (data: BusinessFormData) => {
+    console.log("Form submitted with data:", data);
     // 🚀 Yeni: Form gönderilmeden önce tekrar izin kontrolü
     if (!permissionData?.canAddBusiness) {
       alert(permissionData?.message || "Yeni işletme ekleme izniniz yok.");
@@ -257,6 +271,80 @@ const CreateBusinessPage = () => {
                       <FormMessage />
                     </FormItem>
                   )}
+                />
+                <FormField
+                  control={form.control}
+                  name="city"
+                  render={({ field }) => (
+                    <FormItem className="md:col-span-1">
+                      <FormLabel>İl</FormLabel>
+                      <Select
+                        onValueChange={(value) => {
+                          field.onChange(value);
+                          // İlçe seçimini sıfırlamak için (opsiyonel)
+                          form.setValue("county", "");
+                        }}
+                        defaultValue={field.value}
+                      >
+                        <FormControl>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Bir il seçiniz" />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          {cityData.map((city) => (
+                            <SelectItem key={city.plate} value={city.name}>
+                              {city.name.toUpperCase()}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="county"
+                  render={({ field }) => {
+                    // Seçilen şehri al
+                    const selectedCity = form.watch("city");
+                    // Seçilen şehrin ilçelerini bul
+                    const cityCounties =
+                      cityData.find((c) => c.name === selectedCity)?.counties ||
+                      [];
+
+                    return (
+                      <FormItem className="md:col-span-1">
+                        <FormLabel>İlçe</FormLabel>
+                        <Select
+                          onValueChange={field.onChange}
+                          defaultValue={field.value}
+                          disabled={!selectedCity} // Şehir seçilmediyse devre dışı bırak
+                        >
+                          <FormControl>
+                            <SelectTrigger>
+                              <SelectValue
+                                placeholder={
+                                  selectedCity
+                                    ? "Bir ilçe seçiniz"
+                                    : "Önce il seçiniz"
+                                }
+                              />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            {cityCounties.map((county) => (
+                              <SelectItem key={county} value={county}>
+                                {county.toUpperCase()}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                        <FormMessage />
+                      </FormItem>
+                    );
+                  }}
                 />
                 {/* Business Address */}
                 <FormField

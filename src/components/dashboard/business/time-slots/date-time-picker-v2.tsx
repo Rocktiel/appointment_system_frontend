@@ -28,11 +28,6 @@ type Props = {
   onSubmit: (values: { startTime: string; endTime: string }) => Promise<void>;
 };
 
-// Yardımcı saat karşılaştırma fonksiyonu
-
-// Form doğrulama şeması
-
-// Ana bileşen
 export function DateTimePickerV2({ onSubmit }: Props) {
   const [currentStartTime, setCurrentStartTime] = useState<string>("09:00");
 
@@ -72,7 +67,9 @@ export function DateTimePickerV2({ onSubmit }: Props) {
             name="startTime"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Başlangıç Zamanı</FormLabel>
+                <FormLabel className="text-gray-700 text-lg">
+                  Başlangıç Zamanı
+                </FormLabel>
                 <FormControl>
                   <Select
                     value={field.value}
@@ -115,7 +112,9 @@ export function DateTimePickerV2({ onSubmit }: Props) {
             name="endTime"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Bitiş Zamanı</FormLabel>
+                <FormLabel className="text-gray-700 text-lg">
+                  Bitiş Zamanı
+                </FormLabel>
                 <FormControl>
                   <Select value={field.value} onValueChange={field.onChange}>
                     <SelectTrigger className="w-[120px]">
@@ -141,7 +140,9 @@ export function DateTimePickerV2({ onSubmit }: Props) {
           />
         </div>
 
-        <Button type="submit">Kaydet</Button>
+        <Button className="cursor-pointer" type="submit">
+          Kaydet
+        </Button>
       </form>
     </Form>
   );

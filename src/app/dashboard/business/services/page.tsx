@@ -30,6 +30,8 @@ import {
 } from "@/components/ui/select";
 import { Business } from "@/models/business.model";
 import { useGetUserBusinessesQuery } from "@/services/businessApi";
+import { Bus } from "lucide-react";
+import BusinessSelector2 from "@/components/dashboard/business/shared/BusinessSelector2";
 
 export default function ServicesPage() {
   useParams();
@@ -191,37 +193,10 @@ export default function ServicesPage() {
         <CardContent className="space-y-6">
           {/* İşletme Seçim Dropdown'ı */}
           <div>
-            <Label
-              htmlFor="business-select"
-              className="block text-sm font-medium text-gray-700 mb-1"
-            >
-              İşletme Seç
-            </Label>
-            <Select
-              value={selectedBusinessId || ""}
-              onValueChange={(val) => {
-                setSelectedBusinessId(val);
-                // Artık burada setEditedServiceValues'ı sıfırlıyoruz (useEffect'e taşıdık)
-              }}
-              disabled={isLoadingBusinesses}
-            >
-              <SelectTrigger className="w-full md:w-[250px]">
-                <SelectValue
-                  placeholder={
-                    isLoadingBusinesses
-                      ? "İşletmeler yükleniyor..."
-                      : "İşletme Seç"
-                  }
-                />
-              </SelectTrigger>
-              <SelectContent>
-                {businesses?.map((b: Business) => (
-                  <SelectItem key={b.id} value={b.id.toString()}>
-                    {b.businessName}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+            <BusinessSelector2
+              selectedBusinessId={selectedBusinessId}
+              onSelectBusiness={setSelectedBusinessId}
+            />
           </div>
 
           {/* Yeni Hizmet Ekleme Formu */}
@@ -272,6 +247,10 @@ export default function ServicesPage() {
             {isLoadingServices ? (
               <p className="text-center text-gray-500">
                 Hizmetler yükleniyor...
+              </p>
+            ) : !selectedBusinessId ? (
+              <p className="text-center text-gray-500">
+                Mevcut hizmetleri görüntülemek için lütfen bir işletme seçin.
               </p>
             ) : services.length === 0 ? (
               <p className="text-center text-gray-500">
