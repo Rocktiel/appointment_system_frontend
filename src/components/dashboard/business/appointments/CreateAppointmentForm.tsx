@@ -55,7 +55,7 @@ type CreateAppointmentFormProps = {
   onSuccess: () => void;
   onCancel: () => void;
 };
-
+//TODO Randevuyu oluşturuyor ama hala yeşil kalıyor zaman dilimi
 export function CreateAppointmentForm({
   timeSlot,
   businessId,
@@ -270,7 +270,6 @@ export function CreateAppointmentForm({
             {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
             Randevu Oluştur
           </Button>
-          //TODO Randevuyu oluşturuyor ama hala yeşil kalıyor zaman dilimi
         </div>
       </form>
     </Form>
