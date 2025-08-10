@@ -172,7 +172,9 @@ const FindBusinessPage = () => {
 
                       <Button
                         className="mt-4 w-full bg-amber-500 text-white hover:bg-amber-600 transition-colors duration-300 rounded-lg shadow-md cursor-pointer"
-                        onClick={() => handleGoToAppointment(business.slug)}
+                        onClick={() =>
+                          window.open(`/${business.slug}`, "_blank")
+                        }
                       >
                         Randevu Al <ArrowRight className="ml-2 w-4 h-4" />
                       </Button>

@@ -1,3 +1,5 @@
+import InfoCard from "@/components/about/InfoCard";
+
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-gray-900 text-white py-20 px-4 mt-5 sm:px-6 lg:px-8 pt-24">
@@ -27,27 +29,14 @@ export default function AboutPage() {
           Vizyonumuz ve Misyonumuz
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
-            <h3 className="text-2xl font-semibold text-amber-400 mb-3">
-              Vizyonumuz
-            </h3>
-            <p className="text-gray-300">
-              Her işletmenin randevu yönetimini zahmetsizce yapabildiği,
-              müşterileriyle sorunsuz bir şekilde etkileşim kurduğu ve dijital
-              dönüşümün liderliğini üstlendiği bir gelecek yaratmaktır.
-            </p>
-          </div>
-          <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
-            <h3 className="text-2xl font-semibold text-amber-400 mb-3">
-              Misyonumuz
-            </h3>
-            <p className="text-gray-300">
-              İşletmelere kullanıcı dostu, güvenilir ve ölçeklenebilir randevu
-              yönetim çözümleri sunarak, onların operasyonel yükünü azaltmak,
-              müşteri memnuniyetini artırmak ve sürdürülebilir büyümelerine
-              katkıda bulunmaktır.
-            </p>
-          </div>
+          <InfoCard
+            title="Vizyonumuz"
+            description="Her işletmenin randevu yönetimini zahmetsizce yapabildiği, müşterileriyle sorunsuz bir şekilde etkileşim kurduğu ve dijital dönüşümün liderliğini üstlendiği bir gelecek yaratmaktır."
+          />
+          <InfoCard
+            title="Misyonumuz"
+            description="İşletmelere kullanıcı dostu, güvenilir ve ölçeklenebilir randevu yönetim çözümleri sunarak, onların operasyonel yükünü azaltmak, müşteri memnuniyetini artırmak ve sürdürülebilir büyümelerine katkıda bulunmaktır."
+          />
         </div>
       </div>
     </div>

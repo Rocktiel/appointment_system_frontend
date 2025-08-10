@@ -78,6 +78,8 @@ export interface BusinessDetails {
   isLocationVisible: boolean;
   lat: number;
   lng: number;
+  city: string;
+  county: string;
 }
 export interface DetailedTimeSlot {
   id: number;

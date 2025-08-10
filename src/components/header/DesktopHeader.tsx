@@ -60,6 +60,13 @@ export const DesktopHeader = () => {
             <span>Giriş Yap</span>
           </Link>
         </Button>
+
+        <Button
+          asChild
+          className="bg-amber-500 text-white font-bold border-2 border-amber-600 hover:bg-amber-600 hover:border-amber-700 hover:scale-105 transition-transform"
+        >
+          <Link href="/appointment/business">Randevu Al</Link>
+        </Button>
       </div>
     </>
   );

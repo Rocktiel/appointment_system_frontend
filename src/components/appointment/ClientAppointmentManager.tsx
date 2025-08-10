@@ -21,6 +21,7 @@ import VerificationDialog, {
   VerificationFormValues,
 } from "./VertificationDialog";
 import { BusinessDetails } from "@/models/customer.model";
+import { toast } from "sonner";
 
 // Ana sayfadan kopyalanan Zod şemaları
 const appointmentFormSchema = z.object({
@@ -125,6 +126,7 @@ export function ClientAppointmentManager({
   // Seçilen tarih değiştiğinde müsait zaman dilimlerini yükle
   const {
     data: detailedTimeSlots = [],
+    refetch,
     isLoading: loadingSlots,
     // refetch: refetchDetailedTimeSlots, // Manuel yenileme ihtiyacı varsa
   } = useGetDetailedTimeSlotsQuery(
@@ -184,6 +186,11 @@ export function ClientAppointmentManager({
             error?.data?.message ||
             "Randevu başlatılırken bir hata oluştu. Lütfen tekrar deneyin.",
         });
+        toast.error(
+          error?.data?.message ||
+            "Randevu başlatılırken bir hata oluştu. Lütfen tekrar deneyin."
+        );
+        await refetch(); // Hata sonrası zaman dilimlerini yeniden yükle
       }
     },
     [initialBusiness, detailedTimeSlots, initiateBooking]
@@ -236,7 +243,7 @@ export function ClientAppointmentManager({
           time_slot_template_id: selectedSlot.id,
           note: tempAppointmentData.note,
         }).unwrap();
-
+        toast.success("Randevunuz başarıyla oluşturuldu!");
         setAppointmentMessage({
           type: "success",
           text: "Randevunuz başarıyla oluşturuldu ve onaylandı! 🎉",
@@ -251,7 +258,7 @@ export function ClientAppointmentManager({
           note: "",
         });
         verificationForm.reset();
-
+        await refetch();
         // Randevu sonrası zaman dilimlerini yeniden çekmek için
         // useGetDetailedTimeSlotsQuery'nin refetch fonksiyonunu kullanabilirsiniz,
         // veya ilgili cache tag'ini invalidate edebilirsiniz (eğer offersTags/invalidatesTags kullandıysanız).
@@ -261,9 +268,13 @@ export function ClientAppointmentManager({
         // Örnek: dispatch(customerApi.endpoints.getDetailedTimeSlots.initiate({ businessId: initialBusiness.id, date: format(selectedDate, "yyyy-MM-dd") }, { forceRefetch: true }));
         // Veya providesTags/invalidatesTags kullanın.
       } catch (error: any) {
+        console.error("Doğrulama hatası:", error);
         verificationForm.setError("code", {
           message: error.message || "Doğrulama başarısız.",
         });
+        toast.error(
+          error.message || "Doğrulama başarısız. Lütfen tekrar deneyin."
+        );
       }
     },
     [
