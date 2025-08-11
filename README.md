@@ -55,6 +55,12 @@ src/
 │   ├── [slug]/                     # Dinamik işletme randevu sayfası (örn: /bir-isletme-adi)
 │   │   └── page.tsx                # İşletmeye özel randevu alma sayfası
 │   │
+│   ├── appointment/                # Müşterilerin kendi bölgelerindeki işletmelerini bulmalarını sağlar
+│   │       ├── business/
+│   │       │   ├── page.tsx
+│   │       │
+│   │       └── layout.tsx
+│   │
 │   └── dashboard/                  # Kimlik doğrulaması gerektiren paneller
 │       ├── layout.tsx              # Dashboard genel düzeni
 │       │
@@ -65,7 +71,7 @@ src/
 │       │   └── layout.tsx          # Admin paneline özel düzen
 │       │
 │       └── business/               # İşletme Sahibi paneli rotaları
-│           ├── page.tsx                # İşletme ana sayfası
+│           ├── home/page.tsx           # İşletme Ana Sayfası
 │           ├── appointments/page.tsx   # İşletme: Randevu görüntüleme/yönetimi
 │           ├── calendar/page.tsx       # İşletme: Haftalık takvimden randevu görüntüleme
 │           ├── createBusiness/page.tsx # İşletme: İşletme oluşturma
@@ -73,6 +79,7 @@ src/
 │           ├── services/page.tsx       # İşletme: İşletmenin vereceği hizmetleri yönetme
 │           ├── settings/page.tsx       # İşletme: Ayarlar sayfası
 │           ├── statistics/page.tsx     # İşletme: İşletmenin istatistikleri
+│           ├── subscription/page.tsx   # İşletme: Aboneliği yönet
 │           ├── time-slots/page.tsx     # İşletme: İşletmenin zaman aralıklarını yönetme
 │           └── layout.tsx              # İşletme paneline özel düzen
 │
