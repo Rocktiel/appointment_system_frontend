@@ -32,8 +32,8 @@ const FindBusinessPage = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-[calc(100vh-8rem)] bg-gray-50 dark:bg-gray-900 md:p-6">
-      <Card className="w-full max-w-4xl shadow-2xl rounded-2xl md:p-8 bg-white dark:bg-gray-800">
+    <div className="flex flex-col items-center justify-center min-h-[calc(100vh-8rem)] bg-white  md:p-6">
+      <Card className="w-full max-w-4xl  rounded-2xl md:p-8 bg-white ">
         <CardHeader className="text-center space-y-2">
           <h1 className="text-4xl font-extrabold text-gray-900 dark:text-gray-50 flex items-center justify-center gap-4">
             <Search className="w-10 h-10 text-amber-500" />
@@ -83,7 +83,7 @@ const FindBusinessPage = () => {
                 {businesses.map((business) => (
                   <Card
                     key={business.id}
-                    className="shadow-lg hover:shadow-xl transition-shadow duration-300 border-2 border-gray-100 dark:border-gray-700"
+                    className="shadow-lg hover:shadow-xl hover:scale-102 transition-transform duration-300 border-2 border-gray-100 dark:border-gray-700"
                   >
                     <CardContent className="p-6">
                       <h3 className="text-xl font-bold text-gray-900 dark:text-gray-50">
@@ -99,12 +99,12 @@ const FindBusinessPage = () => {
                       </p>
 
                       <Button
-                        className="mt-4 w-full bg-amber-500 text-white hover:bg-amber-600 transition-colors duration-300 rounded-lg shadow-md cursor-pointer"
+                        className="mt-4 w-full bg-amber-500 text-white text-lg hover:bg-amber-600 transition-colors duration-300 rounded-lg shadow-md cursor-pointer"
                         onClick={() =>
                           window.open(`/${business.slug}`, "_blank")
                         }
                       >
-                        Randevu Al <ArrowRight className="ml-2 w-4 h-4" />
+                        Randevu Al <ArrowRight className="ml-2 size-5" />
                       </Button>
                     </CardContent>
                   </Card>

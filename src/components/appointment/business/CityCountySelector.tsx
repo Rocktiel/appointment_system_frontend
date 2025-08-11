@@ -12,6 +12,9 @@ const CityCountySelector: React.FC<Props> = ({ onChange }) => {
   const [counties, setCounties] = useState<string[]>([]);
 
   useEffect(() => {
+    console.log("Selected City:", selectedCity);
+    console.log("Selected County:", selectedCounty);
+    console.log("Counties:", counties);
     if (selectedCity) {
       const city = cityData.find((c) => c.name === selectedCity);
       setCounties(city?.counties || []);
@@ -23,16 +26,21 @@ const CityCountySelector: React.FC<Props> = ({ onChange }) => {
 
   // Seçim değiştiğinde parent'a bildir
   useEffect(() => {
+    console.log("Selected City:", selectedCity);
+    console.log("Selected County:", selectedCounty);
+    console.log("Counties:", counties);
     onChange(selectedCity, selectedCounty);
   }, [selectedCity, selectedCounty]);
-
+  console.log("Selected City:", selectedCity);
+  console.log("Selected County:", selectedCounty);
+  console.log("Counties:", counties);
   return (
     <div className="space-y-4">
       {/* İl seçimi */}
       <select
         value={selectedCity}
         onChange={(e) => setSelectedCity(e.target.value)}
-        className="border p-2 rounded w-full"
+        className="border p-2 rounded w-full cursor-pointer"
       >
         <option value="">İl seçin</option>
         {cityData.map((city) => (
@@ -46,7 +54,7 @@ const CityCountySelector: React.FC<Props> = ({ onChange }) => {
       <select
         value={selectedCounty}
         onChange={(e) => setSelectedCounty(e.target.value)}
-        className="border p-2 rounded w-full"
+        className="border p-2 rounded w-full  cursor-pointer"
         disabled={!selectedCity}
       >
         <option value="">İlçe seçin</option>
