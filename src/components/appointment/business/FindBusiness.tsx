@@ -1,63 +1,3 @@
-// "use client";
-// import React, { useState } from "react";
-// import CityCountySelector from "./CityCountySelector";
-// import { useGetBusinessByLocationQuery } from "@/services/customerApi";
-
-// const FindBusinessPage = () => {
-//   const [selectedCity, setSelectedCity] = useState("");
-//   const [selectedCounty, setSelectedCounty] = useState("");
-
-//   // Hook'u bileşenin en üst seviyesinde çağırın
-//   const { data, error, isLoading } = useGetBusinessByLocationQuery(
-//     { city: selectedCity, county: selectedCounty },
-//     { skip: !selectedCity || !selectedCounty } // Eğer şehir veya ilçe seçili değilse sorguyu atla
-//   );
-
-//   const handleLocationChange = (city: string, county: string) => {
-//     setSelectedCity(city);
-//     setSelectedCounty(county);
-//   };
-
-//   // Veri değiştiğinde loglama yap
-//   React.useEffect(() => {
-//     if (data) {
-//       console.log("İşletmeler:", data);
-//     }
-//     if (error) {
-//       console.error("İşletmeler alınırken hata oluştu:", error);
-//     }
-//   }, [data, error]);
-
-//   return (
-//     <div className="max-w-3xl mx-auto p-6 space-y-6">
-//       <h1 className="text-2xl font-bold">İşletme Bul</h1>
-
-//       <CityCountySelector onChange={handleLocationChange} />
-
-//       <p className="text-sm text-gray-500">
-//         Seçilen: {selectedCity} / {selectedCounty}
-//       </p>
-
-//       {isLoading && <p>Yükleniyor...</p>}
-
-//       {data && (
-//         <div className="space-y-4">
-//           <h2 className="text-xl font-semibold">Bulunan İşletmeler</h2>
-//           <ul className="space-y-2">
-//             {data.map((business) => (
-//               <li key={business.id} className="p-4 border rounded">
-//                 <h3 className="font-medium">{business.businessName}</h3>
-//                 <p>{business.businessAddress}</p>
-//               </li>
-//             ))}
-//           </ul>
-//         </div>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default FindBusinessPage;
 "use client";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -66,17 +6,6 @@ import { useGetBusinessByLocationQuery } from "@/services/customerApi";
 import { Button } from "@/components/ui/button"; // Shadcn/ui'dan Button bileşenini ekledik
 import { Card, CardContent, CardHeader } from "@/components/ui/card"; // Kart bileşenlerini ekledik
 import { MapPin, Search, ArrowRight, Phone } from "lucide-react"; // Ikonları ekledik
-
-// API'den gelecek işletme verisi için tip tanımlaması
-interface Business {
-  id: number;
-  businessName: string;
-  businessAddress: string;
-  slug: string;
-  city: string;
-  county: string;
-  // Diğer alanlar da burada olabilir
-}
 
 const FindBusinessPage = () => {
   const [selectedCity, setSelectedCity] = useState("");
@@ -92,8 +21,7 @@ const FindBusinessPage = () => {
     { city: selectedCity, county: selectedCounty },
     { skip: !selectedCity || !selectedCounty } // Eğer şehir veya ilçe seçili değilse sorguyu atla
   );
-  console.log("İşletmeler:", businesses); // Veri değiştiğinde loglama yap
-  console.log("İşletmeler alınırken hata oluştu:", error); // Hata durumunda loglama yap
+
   const handleLocationChange = (city: string, county: string) => {
     setSelectedCity(city);
     setSelectedCounty(county);

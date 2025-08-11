@@ -1,12 +1,14 @@
 import {
   Building2,
-  CalendarCheck,
   Scissors,
   Clock4,
   Settings,
   Home,
   Boxes,
   MapPinPlus,
+  ChartNoAxesCombined,
+  CalendarPlus,
+  CalendarDays,
 } from "lucide-react";
 import { ReactNode } from "react";
 
@@ -34,12 +36,12 @@ export const menuItems: MenuItem[] = [
   },
   {
     label: "Randevu Yönetimi",
-    icon: <CalendarCheck size={20} />,
+    icon: <CalendarPlus size={20} />,
     path: "appointments",
   },
   {
     label: "Takvim",
-    icon: <CalendarCheck size={20} />,
+    icon: <CalendarDays size={20} />,
     path: "calendar",
   },
   {
@@ -51,6 +53,11 @@ export const menuItems: MenuItem[] = [
     label: "Zaman Dilimleri",
     icon: <Clock4 size={20} />,
     path: "time-slots",
+  },
+  {
+    label: "İstatistikler",
+    icon: <ChartNoAxesCombined size={20} />,
+    path: "statistics",
   },
   {
     label: "Aboneliğim",

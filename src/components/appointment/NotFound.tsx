@@ -8,7 +8,9 @@ export default function NotFound() {
       <Frown className="w-24 h-24 text-red-500 mb-6 animate-bounce-slow" />{" "}
       {/* Hata simgesi */}
       <h1 className="text-5xl font-extrabold mb-4">404</h1>
-      <h2 className="text-3xl font-semibold mb-6">İşletme Bulunamadı!</h2>
+      <h2 className="text-3xl font-semibold mb-6">
+        Aradığınız işletme veya sayfa bulunamadı!
+      </h2>
       <p className="text-lg mb-8 max-w-md">
         Aradığınız işletme şu anda mevcut değil veya yanlış bir bağlantıyı takip
         ettiniz.

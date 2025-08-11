@@ -5,8 +5,8 @@ import {
   useGetPackagesQuery,
 } from "@/services/businessApi";
 
-import BusinessStatisticsPage from "./statistics/page";
 import CheckUserPackage from "@/components/dashboard/business/subscription/CheckUserPackage";
+import BusinessHomePage from "./home/page";
 
 const BusinessDashboard = () => {
   const { data: userPackageData, isLoading: isUserPackageLoading } =
@@ -29,7 +29,7 @@ const BusinessDashboard = () => {
 
   return (
     <div className="flex w-full">
-      <BusinessStatisticsPage />
+      <BusinessHomePage />
     </div>
   );
 };
