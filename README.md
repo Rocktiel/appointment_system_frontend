@@ -138,6 +138,12 @@ Kayıt işleminden sonra kullanıcının e-posta adresine gönderilen doğrulama
 Kullanıcının e-posta adresine gönderilen, hesap doğrulama için gerekli olan tek kullanımlık kodu içeren e-posta örneği.
 ![E-mail Doğrulama Maili](./public/project_images/mail_code.png)
 
+## İşletme Bulma Ekranı
+
+Müşteriler kendi bölgelerindeki kolayca bulabilir ve randevu alabilir.
+![İşletme Paket Seçme Hero](./public/project_images/find_business_hero.png)
+![İşletme Paket Seçme](./public/project_images/find_business.png)
+
 ## İşletme Paket Seçme Ekranı
 
 İşletme sahiplerinin kendi işletmelerini oluşturmadan önce, ihtiyaçlarına en uygun abonelik paketini seçebileceği arayüz. İşletme herhangi bir pakete abone olmadan önce kayıt olabilir ama herhangi bir abonelik almadan işletme oluşturamaz.
@@ -176,4 +182,9 @@ Kullanıcının e-posta adresine gönderilen, hesap doğrulama için gerekli ola
 ## Müşteri Randevu Ekranı
 
 Müşterilerin belirli bir işletme için randevu alabileceği ana sayfa. İşletme bilgilerini, müsait zaman dilimlerini ve hizmetleri görüntüleyerek randevu formunu doldurabilirler ve telefon doğrulaması ile hızlıca kolay bir şekilde randevularını oluşturabilirler.
+![Müşteri Randevu](./public/project_images/appointment_page.png)
+
+## Müşteri SMS Kodu İle Randevuyu Onaylama
+
+Müşterilerin "Randevu Al" butonuna tıkladıklarında telefon onaylama ekranı geliyor. Burada hem son kez randevu bilgilerini kontrol edebiliyolar hem de SMS ile gelen kodu girerek randevularını alabiliyorlar.
 ![Müşteri Randevu](./public/project_images/appointment_page.png)
