@@ -114,17 +114,17 @@ Ziyaretçilere sistemin işleyişi, özellikleri ve avantajları hakkında genel
 
 ## Paketler Ekranı
 
-İşletmelerin ihtiyacına uygun planları seçebileceği detaylı paket listesidir. Fiyatlar ve kapsamlar açıkça gösterilir.
+İşletmelerin ihtiyacına uygun planları seçebileceği detaylı paket listesidir.Fiyat ve kapsam bilgileri net ve anlaşılır şekilde sunulur.
 ![Paketler](./public/project_images/packages_page.png)
 
 ## Kayıt Ekranı
 
-Yeni kullanıcıların (İşletme Sahibi rolünde) sisteme kaydolabileceği form. E-posta ve şifre gibi temel bilgileri toplar.
+Yeni kullanıcıların (İşletme Sahibi rolünde) sisteme kaydolabileceği form ekranıdır. E-posta, şifre gibi temel bilgiler toplanır.
 ![Kayıt](./public/project_images/register_page.png)
 
 ## Giriş Ekranı
 
-Kayıtlı kullanıcıların (Admin veya İşletme Sahibi) e-posta ve şifreleri ile sisteme güvenli bir şekilde giriş yapabileceği arayüz. Başarılı giriş sonrası JWT tabanlı kimlik doğrulama sistemiyle kullanıcılar rollerine göre ilgili panele yönlendirilir.
+Kayıtlı kullanıcıların (Admin veya İşletme Sahibi) e-posta ve şifreleriyle sisteme güvenli giriş yapabileceği ekran. Başarılı giriş sonrası JWT tabanlı kimlik doğrulama ile kullanıcılar rollerine göre ilgili panele yönlendirilir.
 
 ![Giriş](./public/project_images/login_page.png)
 
@@ -133,14 +133,14 @@ Kayıtlı kullanıcıların (Admin veya İşletme Sahibi) e-posta ve şifreleri 
 Kayıt işleminden sonra kullanıcının e-posta adresine gönderilen doğrulama kodunu girerek hesabını aktive edebileceği sayfa.
 ![E-mail Doğrulama](./public/project_images/confirm_email.png)
 
-#### Kod Maili
+#### Doğrulama E-postası Örneği
 
 Kullanıcının e-posta adresine gönderilen, hesap doğrulama için gerekli olan tek kullanımlık kodu içeren e-posta örneği.
 ![E-mail Doğrulama Maili](./public/project_images/mail_code.png)
 
 ## İşletme Bulma Ekranı
 
-Müşteriler kendi bölgelerindeki kolayca bulabilir ve randevu alabilir.
+Müşteriler kendi bölgelerindeki işletmeleri kolayca bulabilir ve randevu alabilir.
 ![İşletme Paket Seçme Hero](./public/project_images/find_business_hero.png)
 ![İşletme Paket Seçme](./public/project_images/find_business.png)
 
@@ -149,19 +149,24 @@ Müşteriler kendi bölgelerindeki kolayca bulabilir ve randevu alabilir.
 İşletme sahiplerinin kendi işletmelerini oluşturmadan önce, ihtiyaçlarına en uygun abonelik paketini seçebileceği arayüz. İşletme herhangi bir pakete abone olmadan önce kayıt olabilir ama herhangi bir abonelik almadan işletme oluşturamaz.
 ![İşletme Paket Seçme](./public/project_images/business_select_page.png)
 
+## İşletme Ana Sayfa Ekranı
+
+İşletme sahipleri, bugünkü randevu sayılarını, en yakın zamandaki randevu bilgilerini ve günlük tahmini gelirlerini buradan takip edebilir.
+![İşletme Ana Sayfa](./public/project_images/business_home.png)
+
 ## İşletme Ekleme Ekranı
 
-İşletme sahiplerinin, işletmelerinin temel bilgilerini (adı, adresi, iletişim bilgileri, konumu vb.) sisteme girebileceği form. Google Haritalar entegrasyonu ile konum belirleme kolaylığı sunar.
-![İşletme Ekleme](./public/project_images/business_create_page.png)
+İşletme sahiplerinin, işletmelerinin temel bilgilerini (adı, adresi, iletişim bilgileri, konumu vb.) sisteme girebileceği form ekranıdır. Google Haritalar entegrasyonu ile konum belirleme kolaylığı sunar.
+![İşletme Ekleme](./public/project_images/add_business_g.png)
 
 ## İşletme Detay Ekranı
 
-İşletme sahibinin kendi işletmesinin genel bilgilerini görüntüleyebileceği ve düzenleyebileceği detay sayf
+İşletme sahibinin kendi işletmesinin genel bilgilerini görüntüleyebileceği ve düzenleyebileceği detay ekranı.
 ![İşletme Detay](./public/project_images/business_detail_page.png)
 
 ## İşletme Hizmet Yönetimi Ekranı
 
-İşletme sahiplerinin, sundukları hizmetleri (örn: saç kesimi, masaj) ekleyebileceği, düzenleyebileceği ve silebileceği yönetim paneli. Her hizmetin adı, süresi ve fiyatı gibi detayları belirlenir.
+İşletme sahiplerinin, sundukları hizmetleri (örn: saç kesimi, masaj) ekleyebileceği, düzenleyebileceği ve silebileceği yönetim paneli. Her hizmetin adı, süresi ve fiyatı belirlenebilir.
 ![İşletme Hizmet Yönetimi](./public/project_images/add_services_page.png)
 
 ## İşletme Zaman Aralıkları Yönetimi Ekranı
@@ -171,20 +176,31 @@ Müşteriler kendi bölgelerindeki kolayca bulabilir ve randevu alabilir.
 
 ## İşletme Randevu Yönetimi Ekranı
 
-İşletme sahiplerinin kendilerine ait randevuları listeleyebileceği, detaylarını görüntüleyebileceği yönetim paneli.
-![İşletme Randevu Yönetimi](./public/project_images/appointment_management.png)
+İşletme sahiplerinin kendilerine ait randevuları listeleyebileceği, detaylarını görüntüleyebileceği yönetim paneli. Bu panel üzerinden kendileri de müşteriler için randevu oluşturabilirler.
+
+#### Müsait bir zaman.
+
+![İşletme Randevu Yönetimi](./public/project_images/appointment_available.png)
+
+#### Randevu alınmış bir zaman.
+
+![İşletme Randevu Yönetimi](./public/project_images/appointments_booked.png)
 
 ## İşletme Takvim Ekranı
 
 İşletme sahiplerinin randevularını takvim görünümünde kolayca takip edebileceği, günlük veya haftalık bazda müsaitlik durumlarını ve dolu slotları görsel olarak görebileceği arayüz.
-![İşletme Takvim](./public/project_images/business_calendar.png)
+![İşletme Takvim](./public/project_images/calendar.png)
 
-## Müşteri Randevu Ekranı
+## Müşteri Randevu Ekranı İşletme Bilgisi Kısmı
 
 Müşterilerin belirli bir işletme için randevu alabileceği ana sayfa. İşletme bilgilerini, müsait zaman dilimlerini ve hizmetleri görüntüleyerek randevu formunu doldurabilirler ve telefon doğrulaması ile hızlıca kolay bir şekilde randevularını oluşturabilirler.
-![Müşteri Randevu](./public/project_images/appointment_page.png)
+![Müşteri Randevu İşletme Bilgisi](./public/project_images/appointment_business_info.png)
+
+## Müşteri Randevu Ekranı Randevu Alma Kısmı
+
+![Müşteri Randevu](./public/project_images/appointment_business_info.png)
 
 ## Müşteri SMS Kodu İle Randevuyu Onaylama
 
 Müşterilerin "Randevu Al" butonuna tıkladıklarında telefon onaylama ekranı geliyor. Burada hem son kez randevu bilgilerini kontrol edebiliyolar hem de SMS ile gelen kodu girerek randevularını alabiliyorlar.
-![Müşteri Randevu](./public/project_images/appointment_page.png)
+![Müşteri Randevu](./public/project_images/verify_phone.png)
