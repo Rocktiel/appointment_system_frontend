@@ -162,17 +162,17 @@ Müşteriler kendi bölgelerindeki işletmeleri kolayca bulabilir ve randevu ala
 ## İşletme Detay Ekranı
 
 İşletme sahibinin kendi işletmesinin genel bilgilerini görüntüleyebileceği ve düzenleyebileceği detay ekranı.
-![İşletme Detay](./public/project_images/business_detail_page.png)
+![İşletme Detay](./public/project_images/business_info.png)
 
 ## İşletme Hizmet Yönetimi Ekranı
 
 İşletme sahiplerinin, sundukları hizmetleri (örn: saç kesimi, masaj) ekleyebileceği, düzenleyebileceği ve silebileceği yönetim paneli. Her hizmetin adı, süresi ve fiyatı belirlenebilir.
-![İşletme Hizmet Yönetimi](./public/project_images/add_services_page.png)
+![İşletme Hizmet Yönetimi](./public/project_images/services.png)
 
 ## İşletme Zaman Aralıkları Yönetimi Ekranı
 
 İşletme sahiplerinin, haftanın belirli günleri için çalışma saatlerini ve randevu alınabilecek zaman aralıklarını (slotları) belirleyebileceği ekran. Bu sayede müşteriler sadece müsait zaman dilimlerini görebilir. İşletme sahiplerine her günü ayrı zaman dilimlerine bölme özgürlüğü sunar.
-![İşletme Zaman Aralıkları Yönetimi](./public/project_images/add_timeslots_page.png)
+![İşletme Zaman Aralıkları Yönetimi](./public/project_images/time-slots.png)
 
 ## İşletme Randevu Yönetimi Ekranı
 
@@ -198,7 +198,7 @@ Müşterilerin belirli bir işletme için randevu alabileceği ana sayfa. İşle
 
 ## Müşteri Randevu Ekranı Randevu Alma Kısmı
 
-![Müşteri Randevu](./public/project_images/appointment_business_info.png)
+![Müşteri Randevu](./public/project_images/customer_appointment.png)
 
 ## Müşteri SMS Kodu İle Randevuyu Onaylama
 
